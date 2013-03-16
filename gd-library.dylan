@@ -39,7 +39,7 @@ define library collection-extensions
   use dylan;
   use common-dylan, import: { byte-vector };
   export heap, self-organizing-list, vector-search, subseq, sequence-diff;
-  export sde-vector;
+  export sde-vector, tables;
   export collection-utilities;
   export sequence-utilities;
 end library collection-extensions;
@@ -87,6 +87,10 @@ define module sequence-diff
     <script-entry>, <insert-entry>, <delete-entry>, 
     element-count, source-index, dest-index;
 end module sequence-diff;
+
+define module tables
+  use table-extensions, import: { <case-insensitive-string-table> }, export: all;
+end module tables;
 
 define module collection-utilities
   use dylan;
