@@ -12,15 +12,15 @@ synopsis:  This Module implements some useful methods on collections.
 //  Use and copying of this software and preparation of derivative
 //  works based on this software are permitted, including commercial
 //  use, provided that the following conditions are observed:
-// 
+//
 //  1. This copyright notice must be retained in full on any copies
 //     and on appropriate parts of any derivative works. (Other names
 //     and years may be added, so long as no existing ones are removed.)
-// 
+//
 //  This software is made available "as is".  Neither the authors nor
 //  Carnegie Mellon University make any warranty about the software,
 //  its performance, or its conformity to any specification.
-// 
+//
 //  Bug reports, questions, comments, and suggestions should be sent by
 //  E-mail to the Internet address "gd-bugs@gwydiondylan.org".
 
@@ -28,7 +28,7 @@ synopsis:  This Module implements some useful methods on collections.
 // the author (tc@xantira.com).
 
 
-// SINGLETON? -- check whether ARG is a collection with a single 
+// SINGLETON? -- check whether ARG is a collection with a single
 // element.
 //
 define open generic singleton?

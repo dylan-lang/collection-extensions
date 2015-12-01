@@ -11,15 +11,15 @@ Copyright: See below.
 //  Use and copying of this software and preparation of derivative
 //  works based on this software are permitted, including commercial
 //  use, provided that the following conditions are observed:
-// 
+//
 //  1. This copyright notice must be retained in full on any copies
 //     and on appropriate parts of any derivative works. (Other names
 //     and years may be added, so long as no existing ones are removed.)
-// 
+//
 //  This software is made available "as is".  Neither the authors nor
 //  Carnegie Mellon University make any warranty about the software,
 //  its performance, or its conformity to any specification.
-// 
+//
 //  Bug reports, questions, comments, and suggestions should be sent by
 //  E-mail to the Internet address "gd-bugs@gwydiondylan.org".
 
@@ -35,9 +35,9 @@ define variable *dickens* =
 define test string-subsequence
     (description: "Subsequences of strings.")
   let str1 = "foobar";
-  check-equal("Subsequence(str1, start: 0, end: 3) is \"foo\"", 
+  check-equal("Subsequence(str1, start: 0, end: 3) is \"foo\"",
               subsequence(str1, start: 0, end: 3), "foo");
-  check-equal("Subsequence(str1, start: 3, end: 7) is \"bar\"", 
+  check-equal("Subsequence(str1, start: 3, end: 7) is \"bar\"",
               subsequence(str1, start: 3, end: 7), "bar");
   check-equal("Default start is 0",
               subsequence(str1, end: 3), "foo");

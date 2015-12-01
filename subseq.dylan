@@ -11,25 +11,25 @@ synopsis:     Provides "subsequences", which represent an aliased reference to
 // Copyright (c) 1994  Carnegie Mellon University
 // Copyright (c) 1998 - 2004  Gwydion Dylan Maintainers
 // All rights reserved.
-// 
+//
 // Use and copying of this software and preparation of derivative
 // works based on this software are permitted, including commercial
 // use, provided that the following conditions are observed:
-// 
+//
 // 1. This copyright notice must be retained in full on any copies
 //    and on appropriate parts of any derivative works.
 // 2. Documentation (paper or online) accompanying any system that
 //    incorporates this software, or any part of it, must acknowledge
 //    the contribution of the Gwydion Project at Carnegie Mellon
 //    University, and the Gwydion Dylan Maintainers.
-// 
+//
 // This software is made available "as is".  Neither the authors nor
 // Carnegie Mellon University make any warranty about the software,
 // its performance, or its conformity to any specification.
-// 
+//
 // Bug reports should be sent to <gd-bugs@gwydiondylan.org>; questions,
 // comments and suggestions are welcome at <gd-hackers@gwydiondylan.org>.
-// Also, see http://www.gwydiondylan.org/ for updates and documentation. 
+// Also, see http://www.gwydiondylan.org/ for updates and documentation.
 //
 //======================================================================
 
@@ -38,46 +38,46 @@ synopsis:     Provides "subsequences", which represent an aliased reference to
 // aliased reference to some part of an existing sequence.  Although they may
 // be created by make (with required keywords source:, start: and end:) on one
 // of the instantiable subclasses, they are more often created by calls of the
-// form 
-// 
+// form
+//
 //   subsequence(sequence, start: 0, end: 3)
-// 
+//
 // where start: and end: are optional keywords which default to the beginning
 // and end, respectively, of the source sequence.  No other new operations are
 // defined for subsequences, since all necessary operations are inherited from
-// <sequence>.  
-// 
+// <sequence>.
+//
 // Because subsequences are aliased references into other sequences, several
-// properties must be remembered:  
-// 
+// properties must be remembered:
+//
 //  1. The contents of a subsequence are undefined after any destructive
-//     operation upon the source sequence.  
+//     operation upon the source sequence.
 //  2. Destructive operations upon subsequences may be reflected in the
 //     source.  The results of reverse! and sort! should be expected to affect
-//     the source sequence for vector subsequences.  
-// 
+//     the source sequence for vector subsequences.
+//
 // If the source sequences are instances of <vector> or <string>, then the
 // implementation will use subclasses of <subsequence> which are also
-// subclasses of <vector> or <string>.  
-// 
-// Efficiency notes:  
-// 
+// subclasses of <vector> or <string>.
+//
+// Efficiency notes:
+//
 //  1. The implementation tries to insure that subsequences of subsequences
 //     can be accessed as efficiently as the original subsequence.  (For
-//     example, the result of 
-// 
+//     example, the result of
+//
 //       subsequence(subsequence(source, start: 1), start: 2)
-// 
-//     would produce a subsequence identical to the one produced by 
-// 
+//
+//     would produce a subsequence identical to the one produced by
+//
 //       subsequence(source, start: 3)
-// 
+//
 //  2. Vector subsequences, like all other vectors, implement constant time
-//     element access.  
+//     element access.
 //  3. Non-vector subsequences may take non-constant time to create, but will
 //     provide constant-time access to the first element.  This should produce
 //     the best performance provided some element of the subsequence is
-//     accessed at least once.  
+//     accessed at least once.
 //============================================================================
 
 // Notes while reviewing the code ( -- andreas, 20050531)
@@ -104,20 +104,20 @@ define abstract class <subsequence> (<sequence>)
    constant slot start-index :: <integer>,
      required-init-keyword: start: ;
    // end-index is simply an upper bound, except in the case of
-   // <vector-subsequence>s. 
+   // <vector-subsequence>s.
    constant slot end-index :: <integer>,
      required-init-keyword: end: ;
 end class <subsequence>;
 
 define method subsequence(seq :: <subsequence>,
-			  #key start: first = 0,
-			       end: last) => (result :: <subsequence>);
+                          #key start: first = 0,
+                               end: last) => (result :: <subsequence>);
    let old-first = seq.start-index;
    let old-last = seq.end-index;
    let subseq-last = if (last) min(last + old-first, old-last)
-		     else old-last end if;
+                     else old-last end if;
    make(object-class(seq), source: seq.source,
-	start: first + old-first, end: subseq-last);
+        start: first + old-first, end: subseq-last);
 end method subsequence;
 
 define method type-for-copy (seq :: <subsequence>) => type :: <type>;
@@ -135,41 +135,41 @@ define class <generic-subsequence> (<subsequence>)
 end class;
 
 define method subsequence(seq :: <sequence>,
-			  #key start: first = 0,
-			       end: last) => (result ::
-						<generic-subsequence>);
+                          #key start: first = 0,
+                               end: last) => (result ::
+                                                <generic-subsequence>);
   let subseq-last = if (last) last else max(first, seq.size) end if;
   let (init, limit, next, done?,
        key, elem, elem-setter, copy) = forward-iteration-protocol(seq);
   let state = for (i from 0 below first,
-		   state = init then next(seq, state),
-		   until: done?(seq,state,limit))
-	      finally state;
-	      end for;
+                   state = init then next(seq, state),
+                   until: done?(seq,state,limit))
+              finally state;
+              end for;
   make(<generic-subsequence>, source: seq, start: first, end: subseq-last,
        init: state, limit: limit, next: next, done: done?, elem: elem,
        elem-setter: elem-setter, copy: copy);
 end method subsequence;
 
 define method subsequence(seq :: <generic-subsequence>,
-			  #key start: first = 0,
-			       end: last) => (result :: <generic-subsequence>);
+                          #key start: first = 0,
+                               end: last) => (result :: <generic-subsequence>);
    let old-first = seq.start-index;
    let old-last = seq.end-index;
    let subseq-last = if (last) min(last + old-first, old-last)
-		     else old-last end if;
+                     else old-last end if;
    let source = seq.source;
    let (limit, next, done?) = values(seq.limit, seq.next-state,
-				     seq.finished-state?);
+                                     seq.finished-state?);
    let state = for (i from 0 below first,
-		    state = seq.init-state then next(source, state),
-		    until: done?(source,state, limit))
-	       finally state;
-	       end for;
+                    state = seq.init-state then next(source, state),
+                    until: done?(source,state, limit))
+               finally state;
+               end for;
    make(object-class(seq), source: source, start: first + old-first,
-	end: subseq-last, init: state, limit: limit, next: next, done: done?,
-	elem: seq.current-elem, elem-setter: seq.current-elem-sttr,
-	copy: seq.copy-state);
+        end: subseq-last, init: state, limit: limit, next: next, done: done?,
+        elem: seq.current-elem, elem-setter: seq.current-elem-sttr,
+        copy: seq.copy-state);
 end method subsequence;
 
 define inline function gs-fip-next-state (c :: <generic-subsequence>, s)
@@ -204,8 +204,8 @@ define method forward-iteration-protocol (seq :: <generic-subsequence>)
      current-element :: <function>, current-element-setter :: <function>,
      copy-state :: <function>);
    values(pair(seq.init-state, seq.start-index), seq.limit, gs-fip-next-state,
-	  gs-fip-done?, gs-fip-current-key, gs-fip-current-element,
-	  gs-fip-current-element-setter, gs-fip-copy-state);
+          gs-fip-done?, gs-fip-current-key, gs-fip-current-element,
+          gs-fip-current-element-setter, gs-fip-copy-state);
 end method forward-iteration-protocol;
 
 define class <vector-subsequence> (<subsequence>, <vector>) end class;
@@ -217,16 +217,16 @@ define class <byte-vector-subsequence> (<vector-subsequence>) end class;
 // <string>s.  The only such predefined class is <byte-string>.
 define class <vs-subsequence> (<string-subsequence>, <vector-subsequence>) end;
 
-define method make(cls == <subsequence>, 
-		   #rest keys, #key) => (result :: <vector-subsequence>);
+define method make(cls == <subsequence>,
+                   #rest keys, #key) => (result :: <vector-subsequence>);
    apply(make, <vector-subsequence>, keys);
 end method;
 
 define method subsequence(seq :: <vector>,
-			  #key start: first = 0,
-			       end: last) => (result :: <vector-subsequence>);
+                          #key start: first = 0,
+                               end: last) => (result :: <vector-subsequence>);
   let subseq-last = if (last) last else max(first, seq.size) end if;
-  if (instance?(seq, <string>)) 
+  if (instance?(seq, <string>))
     make(<vs-subsequence>, source: seq, start: first, end: subseq-last);
   else
     make(<vector-subsequence>, source: seq, start: first, end: subseq-last);
@@ -234,8 +234,8 @@ define method subsequence(seq :: <vector>,
 end method subsequence;
 
 define method subsequence(seq :: <byte-vector>,
-			  #key start: first = 0,
-			       end: last) => (result :: <byte-vector-subsequence>);
+                          #key start: first = 0,
+                               end: last) => (result :: <byte-vector-subsequence>);
   let subseq-last = if (last) last else max(first, seq.size) end if;
   make(<byte-vector-subsequence>, source: seq, start: first, end: subseq-last);
 end method subsequence;
@@ -252,18 +252,18 @@ define method subsequence(seq :: <byte-vector-subsequence>,
        end: subseq-last + seq.start-index);
 end;
 
-define inline function vs-fip-next-element 
+define inline function vs-fip-next-element
     (c :: <subsequence>, s :: <integer>) => (result :: <integer>);
   s + 1;
 end function;
 
-define inline function vs-fip-done? 
+define inline function vs-fip-done?
     (c :: <subsequence>, s :: <integer>, l :: <integer>)
  => (done :: <boolean>);
   s >= l;
 end function;
 
-define inline function vs-fip-current-key 
+define inline function vs-fip-current-key
     (c :: <subsequence>, s :: <integer>) => (result :: <integer>);
   s - c.start-index;
 end function;
@@ -299,8 +299,8 @@ define method forward-iteration-protocol (seq :: <subsequence>)
      current-element :: <function>, current-element-setter :: <function>,
      copy-state :: <function>);
    values(seq.start-index, seq.end-index, vs-fip-next-element, vs-fip-done?,
-	  vs-fip-current-key, vs-fip-current-element,
-	  vs-fip-current-element-setter, vs-fip-copy-state);
+          vs-fip-current-key, vs-fip-current-element,
+          vs-fip-current-element-setter, vs-fip-copy-state);
 end method forward-iteration-protocol;
 
 define inline method forward-iteration-protocol (seq :: <byte-vector-subsequence>)
@@ -309,8 +309,8 @@ define inline method forward-iteration-protocol (seq :: <byte-vector-subsequence
      current-element :: <function>, current-element-setter :: <function>,
      copy-state :: <function>);
    values(seq.start-index, seq.end-index, vs-fip-next-element, vs-fip-done?,
-	  vs-fip-current-key, byte-vector-fip-current-element,
-	  byte-vector-fip-current-element-setter, vs-fip-copy-state);
+          vs-fip-current-key, byte-vector-fip-current-element,
+          byte-vector-fip-current-element-setter, vs-fip-copy-state);
 end method forward-iteration-protocol;
 
 define inline method size(c :: <vector-subsequence>) => (result :: <integer>);
@@ -318,7 +318,7 @@ define inline method size(c :: <vector-subsequence>) => (result :: <integer>);
 end method size;
 
 define method aref(c :: <vector-subsequence>,
-		   #rest rest) => (result :: <object>);
+                   #rest rest) => (result :: <object>);
    let index = rest[0];
    if ((index < 0) | (index >= c.size))
       signal("index out of bounds");
@@ -329,7 +329,7 @@ end method;
 
 
 define method aref-setter(value, c :: <vector-subsequence>,
-			  #rest rest) => (result :: <object>);
+                          #rest rest) => (result :: <object>);
    let index = rest[0];
    if ((index < 0) | (index >= c.size))
       signal("index out of bounds");
@@ -346,13 +346,13 @@ end method;
 define constant subseq-no-default = pair(#f, #f);
 
 define method element(seq :: <vector-subsequence>, key :: <integer>,
-		      #key default = subseq-no-default) => elt :: <object>;
-  case 
+                      #key default = subseq-no-default) => elt :: <object>;
+  case
     key < 0 | key >= seq.size =>
       if (default == subseq-no-default)
-	error("No such element in %=: %=", seq, key);
+        error("No such element in %=: %=", seq, key);
       else
-	default
+        default
       end if;
     otherwise => seq.source[key + seq.start-index];
   end case;
@@ -360,8 +360,8 @@ end method element;
 
 
 define method element-setter(value, seq :: <vector-subsequence>,
-			     key :: <integer>) => (result :: <object>);
-   case 
+                             key :: <integer>) => (result :: <object>);
+   case
       key < 0 | key >= seq.size =>
          error("No such element in %=: %=", seq, key);
       otherwise => seq.source[key + seq.start-index] := value;
@@ -370,11 +370,11 @@ end method element-setter;
 
 
 define method subsequence(seq :: <string>,
-			  #key start: first = 0,
-			       end: last) => (result :: <string-subsequence>);
+                          #key start: first = 0,
+                               end: last) => (result :: <string-subsequence>);
   let subseq-last = if (last) last else max(first, seq.size) end;
-  
-  if (instance?(seq, <vector>)) 
+
+  if (instance?(seq, <vector>))
     make(<vs-subsequence>, source: seq, start: first, end: subseq-last);
   else
     make(<string-subsequence>, source: seq, start: first, end: subseq-last);
