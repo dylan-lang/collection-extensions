@@ -39,7 +39,7 @@ define class <SDE-vector> (<mutable-collection>, <stretchy-collection>)
   slot contents :: <stretchy-vector>;
 end class <SDE-vector>;
 
-define method initialize (vec :: <sde-vector>, #next next-method,
+define method initialize (vec :: <sde-vector>,
                           #key size: sz = 0, fill: fill = #f)
   next-method();
   vec.contents := make(<stretchy-vector>, size: sz, fill: fill);

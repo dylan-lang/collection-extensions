@@ -122,7 +122,7 @@ end class <heap>;
 
 // The size: keyword is accepted but ignored
 //
-define method initialize (h :: <heap>, #next next-method,
+define method initialize (h :: <heap>,
                           #key size: size,
                           less-than: less-than = \<)
   next-method();
@@ -329,7 +329,7 @@ end method reverse!;
 
 
 define method sort
-    (h :: <heap>, #next next-method, #key test: test = \<, stable: stable = #f)
+    (h :: <heap>, #key test: test = \<, stable: stable = #f)
  => sorted :: <sequence>;
   if (test == h.heap-less-than)
     let new-seq = make(type-for-copy(h), size: size(h));
