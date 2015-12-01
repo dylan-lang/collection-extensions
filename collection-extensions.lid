@@ -1,6 +1,6 @@
 library: collection-extensions
 Target-Type:  dll
-Files: od-library
+Files: library
         collection-utils
 	solist
 	subseq
