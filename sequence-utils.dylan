@@ -44,7 +44,7 @@ define macro pop!
       tmp }
 end macro pop!;
 
-// PAIR? -- check wether ARG is a pair.
+// PAIR? -- check whether ARG is a pair.
 //
 define method pair? (arg :: <pair>)
   #t;
@@ -102,7 +102,7 @@ define function tabulate
   end if;
 end function tabulate;
 
-// LIST-TABULATE -- make a list of length LENTH. The i-th element is
+// LIST-TABULATE -- make a list of length LENGTH. The i-th element is
 // FUNC(i) for 0 <= i < LENGTH.
 //.
 define function list-tabulate
@@ -497,7 +497,7 @@ define function alist-delete (elt, alist :: <sequence>,
          alist);
 end function alist-delete;
 
-// SATISFIES -- find the first element that satifies PRED.
+// SATISFIES -- find the first element that satisfies PRED.
 //
 define method satisfies
     (pred :: <function>, seq :: <sequence>,
