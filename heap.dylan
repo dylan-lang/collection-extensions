@@ -343,9 +343,9 @@ define method sort
 end method sort;
 
 
-define method sort!(h :: <heap>, #rest key-value-pairs, #key)
+define method sort!(h :: <heap>, #rest all-keys, #key test, stable)
  => sorted :: <sequence>;
-  apply(sort, h, key-value-pairs);
+  apply(sort, h, all-keys);
 end method sort!;
 
 // ---------------------------------------------------------------------
