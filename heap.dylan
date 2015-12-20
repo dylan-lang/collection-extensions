@@ -65,7 +65,7 @@ synopsis: Provides <heap>, a popular data structure for priority queues.
 //
 //      add-new!(heap, item, #key test:, efficient:) => updated-heap
 //      remove!(heap, item, #key test:, efficient:) => updated-heap
-//      member?(heap, item, #key test:, efficient:) => <boolean>
+//      member?(item, heap, #key test:, efficient:) => <boolean>
 //
 // The efficient: keyword defaults to #f. If #t, it uses the
 // random-iteration-protocol (which is considerably more efficient, but isn't
@@ -233,7 +233,7 @@ end method add!;
 define method add-new!(h :: <heap>, new-elt,
                        #key test: test = \=, efficient: efficient = #f)
     => changed-heap :: <heap>;
-  if (~ member?(h, new-elt, test: test, efficient: efficient))
+  if (~ member?(new-elt, h, test: test, efficient: efficient))
     add!(h, new-elt);
   else
     h;
@@ -294,7 +294,7 @@ define method remove!(h :: <heap>, elt,
 end method remove!;
 
 
-define method member?(h :: <heap>, elt, #key test: test = \=,
+define method member?(elt, h :: <heap>, #key test: test = \=,
                       efficient: efficient = #f) => answer :: <boolean>;
   let (init, limit, next, finished?, cur-key, cur-elt) =
     if (efficient)     random-iteration-protocol(h);
