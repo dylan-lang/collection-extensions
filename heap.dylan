@@ -95,7 +95,7 @@ synopsis: Provides <heap>, a popular data structure for priority queues.
 //                             next-state:             O(lg N)
 //                             current-element:        O(1)
 //                             current-element-setter: O(N)
-//     backwards-iteration-protocol
+//     backward-iteration-protocol
 //                             setup:                  O(N * lg N)
 //                             next-state:             O(1)
 //                             current-element:        O(1)
@@ -312,7 +312,7 @@ define method member?(h :: <heap>, elt, #key test: test = \=,
 end method member?;
 
 
-// Can't use backwards-iteration-protocol because that uses reverse
+// Can't use backward-iteration-protocol because that uses reverse
 //
 define method reverse(h :: <heap>) => reversed :: <sequence>;
   let new-seq = make(type-for-copy(h), size: size(h));
@@ -472,12 +472,12 @@ define method forward-iteration-protocol (coll :: <heap>)
 end method forward-iteration-protocol;
 
 
-// Not very efficient. Calling backwards-iteration-protocol takes n lg n
+// Not very efficient. Calling backward-iteration-protocol takes n lg n
 // time, after which each access is constant time (except for
 // current-element-setter, which is m lg n where m is the index of the
 // element that's being changed).
 //
-define method backwards-iteration-protocol (coll :: <heap>)
+define method backward-iteration-protocol (coll :: <heap>)
  => (initial-state :: <object>, limit :: <object>, next-state :: <function>,
      finished-state? :: <function>, current-key :: <function>,
      current-element :: <function>, current-element-setter :: <function>,
@@ -517,7 +517,7 @@ define method backwards-iteration-protocol (coll :: <heap>)
          method(h :: <heap>, state :: <integer>) => new-state :: <integer>;
              state;
          end method);
-end method backwards-iteration-protocol;
+end method backward-iteration-protocol;
 
 
 // Just plows through the heap in the order things appear in the vector.
