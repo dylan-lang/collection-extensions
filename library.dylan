@@ -63,17 +63,12 @@ define module vector-search
   export find-first-key, find-last-key;
 end module vector-search;
 
-// <heap> presents all sorts of problems with <deque> G.F. signatures.
-// But we need the module defined so that we can exclude it...
-//
 define module heap
-/*
   // Since "<heap>" is a subclass of "<sequence>", most methods are simply
   // added to existing generic functions.  The only "new" operation is
   // "random-iteration-protocol".
   use dylan;
   export <heap>, heap-pop, heap-push, random-iteration-protocol;
-*/
 end module heap;
 
 define module SDE-vector
