@@ -260,8 +260,11 @@ end method heap-pop;
 // element from the heap disturbs it, so you have to FIND the
 // elements to remove, THEN remove them.
 //
-define method remove!(h :: <heap>, elt,
-                      #key test: test = \=, efficient: efficient = #f)
+define method remove!
+    (h :: <heap>, elt,
+     #key test: test = \=,
+          efficient: efficient = #f,
+          count :: <integer> = h.heap-size)
     => changed-heap :: <heap>;
   let (init, limit, next, finished?, cur-key, cur-elt) =
     if (efficient)     random-iteration-protocol(h);
@@ -270,9 +273,11 @@ define method remove!(h :: <heap>, elt,
 
   let kill-list = #();
 
+  let count :: <integer> = count | h.heap-size;
   for (state = init then next(h, state), until: finished?(h, state, limit))
-    if (test(elt, cur-elt(h, state)))
+    if ((count > 0) & test(elt, cur-elt(h, state)))
       kill-list := add!(kill-list, cur-elt(h, state));
+      count := count - 1;
     end if;
   end for;
 
