@@ -72,7 +72,7 @@ define module heap
   // added to existing generic functions.  The only "new" operation is
   // "random-iteration-protocol".
   use dylan;
-  export <heap>, random-iteration-protocol;
+  export <heap>, heap-pop, heap-push, random-iteration-protocol;
 */
 end module heap;
 

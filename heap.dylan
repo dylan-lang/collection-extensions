@@ -2,8 +2,8 @@ module:   heap
 author:   Nick Kramer (nkramer@cs.cmu.edu)
 synopsis: Provides <heap>, a popular data structure for priority queues.
           The semantics are basically those of a sorted sequence, with
-          particularly efficient implementations of add!, first, and pop
-          (i.e.  "remove-first").
+          particularly efficient implementations of add!, first, and
+          heap-pop (i.e.  "remove-first").
 
 //======================================================================
 //
@@ -51,16 +51,16 @@ synopsis: Provides <heap>, a popular data structure for priority queues.
 //
 // Heaps support all the usual sequence operations. The most useful ones:
 //
-//      push(heap, item) => updated-heap
-//      pop(heap)        => smallest-element
-//      first(heap)      => smallest-element
-//      second(heap)     => second-smallest-element
-//      add!(heap, item) => updated-heap
-//      sort, sort!      => sorted-sequence
+//      heap-push(heap, item) => updated-heap
+//      heap-pop(heap)        => smallest-element
+//      first(heap)           => smallest-element
+//      second(heap)          => second-smallest-element
+//      add!(heap, item)      => updated-heap
+//      sort, sort!           => sorted-sequence
 //
-// These are all "efficient" operations (defined below).  As with <deque>,
-// push is another name for add!, and does exactly the same thing except that
-// push doesn't accept any keywords.  sort and sort! return a sequence that's
+// These are all "efficient" operations (defined below).  As with push on <deque>,
+// heap-push is another name for add!, and does exactly the same thing except that
+// heap-push doesn't accept any keywords.  sort and sort! return a sequence that's
 // not a heap. Not necessarily efficient but useful anyhow:
 //
 //      add-new!(heap, item, #key test:, efficient:) => updated-heap
@@ -77,8 +77,8 @@ synopsis: Provides <heap>, a popular data structure for priority queues.
 // Things(tm) will happen. No error will be signaled.  Both of these
 // operations are very inefficient.
 //
-// Heaps are NOT <stretchy-collection>s, although add! and pop can magically
-// change the size of the heap.
+// Heaps are NOT <stretchy-collection>s, although add! and heap-pop can
+// magically change the size of the heap.
 //
 // Efficiency: Approximate running times of different operations are given
 // below: (N is the size of the heap)
@@ -87,8 +87,8 @@ synopsis: Provides <heap>, a popular data structure for priority queues.
 //     second (but not second-setter)                  O(1)
 //     size                                            O(1)
 //     add!                                            O(lg N)
-//     push                                            O(lg N)
-//     pop(heap)                                       O(lg N)
+//     heap-push                                       O(lg N)
+//     heap-pop(heap)                                  O(lg N)
 //     sort, sort!                                     O(N * lg N)
 //     forward-iteration-protocol
 //                             setup:                  O(N)
@@ -240,18 +240,18 @@ define method add-new!(h :: <heap>, new-elt,
   end if;
 end method add-new!;
 
-define method push(h :: <heap>, new-elt) => changed-heap :: <heap>;
+define method heap-push(h :: <heap>, new-elt) => changed-heap :: <heap>;
   add!(h, new-elt);
-end method push;
+end method heap-push;
 
-define method pop (h :: <heap>) => smallest-item :: <object>;
+define method heap-pop (h :: <heap>) => smallest-item :: <object>;
   let smallest-item = h.heap-data [0];
   h.heap-data [0] := h.heap-data [size(h) - 1];
 //  remove!(h.heap-data, size(h) - 1);    // Adjust stretchy vector
   h.heap-size := h.heap-size - 1;
   downheap(h, 0);
   smallest-item;
-end method pop;
+end method heap-pop;
 
 
 // This is rather complicated because it can use two different
@@ -439,7 +439,7 @@ define method forward-iteration-protocol (coll :: <heap>)
          #f,                          // limit (not used)
                                       // next-state
          method(h :: <heap>, state :: <heap>) => new-state :: <heap>;
-             pop(state);
+             heap-pop(state);
              state;
          end method,
 
