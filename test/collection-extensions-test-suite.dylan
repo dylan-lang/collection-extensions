@@ -1,4 +1,4 @@
-Module:    collection-extensions-test
+Module:    collection-extensions-test-suite
 Synopsis:  The test suite for the collection-extensions library.
 Author:    Matthias Hölzl (tc@xantira.com)
 Copyright: See below.
@@ -27,7 +27,7 @@ Copyright: See below.
 // the author (tc@xantira.com).
 
 
-define suite collection-extensions-suite
+define suite collection-extensions-test-suite
     (description: "Tests for the collection-extensions library.")
   suite self-organizing-list-suite;
   suite subseq-suite;
@@ -37,5 +37,5 @@ define suite collection-extensions-suite
   suite sequence-diff-suite;
   suite collection-utilities-suite;
   suite sequence-utilities-suite;
-end suite collection-extensions-suite;
+end suite collection-extensions-test-suite;
 

@@ -26,7 +26,7 @@ Copyright: See below.
 // If you need to receive this library under another license contact
 // the author (tc@xantira.com).
 
-define module collection-extensions-test
+define module collection-extensions-test-suite
   use common-dylan;
   // These modules are probably not necessary, but
   // they are convenient for interactive debugging.
@@ -48,5 +48,5 @@ define module collection-extensions-test
   use collection-utilities;
   use sequence-utilities;
 
-  export collection-extensions-suite;
-end module collection-extensions-test;
+  export collection-extensions-test-suite;
+end module collection-extensions-test-suite;

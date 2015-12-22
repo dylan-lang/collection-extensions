@@ -26,7 +26,7 @@ Copyright: See below.
 // If you need to receive this library under another license contact
 // the author (tc@xantira.com).
 
-define library collection-extensions-test
+define library collection-extensions-test-suite
   use common-dylan;
   use dylan,
     import: {dylan-extensions};
@@ -35,5 +35,5 @@ define library collection-extensions-test
   use testworks;
   use collection-extensions;
 
-  export collection-extensions-test;
-end library collection-extensions-test;
+  export collection-extensions-test-suite;
+end library collection-extensions-test-suite;

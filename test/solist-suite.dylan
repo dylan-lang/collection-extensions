@@ -1,4 +1,4 @@
-Module:    collection-extensions-test
+Module:    collection-extensions-test-suite
 Synopsis:  The test suite for the self-organizing-list module.
 Author:    Matthias Hölzl (tc@xantira.com)
 Copyright: See below.
