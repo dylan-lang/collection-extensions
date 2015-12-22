@@ -32,7 +32,7 @@ define suite collection-extensions-test-suite
   suite self-organizing-list-suite;
   suite subseq-suite;
   suite vector-search-suite;
-  // suite heap-suite;
+  suite heap-suite;
   suite sde-vector-suite;
   suite sequence-diff-suite;
   suite collection-utilities-suite;

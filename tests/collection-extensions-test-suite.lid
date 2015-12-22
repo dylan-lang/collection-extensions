@@ -8,4 +8,5 @@ files: library
        sequence-diff-suite
        collection-utils-suite
        sequence-utils-suite
+       heap-suite
        collection-extensions-test-suite
