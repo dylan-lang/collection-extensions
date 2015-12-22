@@ -26,6 +26,46 @@ Copyright: See below.
 // If you need to receive this library under another license contact
 // the author (tc@xantira.com).
 
+define method verify-insert-entry
+    (entry :: <insert-entry>,
+     count :: <integer>,
+     dest :: <integer>,
+     source :: <integer>)
+ => ()
+  assert-equal(count, entry.element-count);
+  assert-equal(dest, entry.dest-index);
+  assert-equal(source, entry.source-index);
+end method verify-insert-entry;
+
+define method verify-insert-entry
+    (entry :: <script-entry>,
+     count :: <integer>,
+     dest :: <integer>,
+     source :: <integer>)
+ => ()
+  assert-instance?(<insert-entry>, entry);
+end method verify-insert-entry;
+
+define test basic-insertion-test ()
+  let diff = sequence-diff(#[], #[1, 2, 3]);
+  assert-equal(diff.size, 1);
+  verify-insert-entry(diff[0], 3, 0, 0);
+
+  let diff = sequence-diff(#[1], #[1, 2, 3]);
+  assert-equal(diff.size, 1);
+  verify-insert-entry(diff[0], 2, 1, 1);
+
+  let diff = sequence-diff(#[2], #[1, 2, 3]);
+  assert-equal(diff.size, 2);
+  verify-insert-entry(diff[0], 1, -1, 0);
+  verify-insert-entry(diff[1], 1, 0, 2);
+
+  let diff = sequence-diff(#[3], #[1, 2, 3]);
+  assert-equal(diff.size, 1);
+  verify-insert-entry(diff[0], 2, -1, 0);
+end test basic-insertion-test;
+
 define suite sequence-diff-suite
     (description: "Test suite for the sequence-diff module.")
+  test basic-insertion-test;
 end suite sequence-diff-suite;
