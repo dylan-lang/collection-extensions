@@ -37,8 +37,8 @@ define test string-subsequence
   let str1 = "foobar";
   check-equal("Subsequence(str1, start: 0, end: 3) is \"foo\"",
               subsequence(str1, start: 0, end: 3), "foo");
-  check-equal("Subsequence(str1, start: 3, end: 7) is \"bar\"",
-              subsequence(str1, start: 3, end: 7), "bar");
+  check-equal("Subsequence(str1, start: 3, end: 6) is \"bar\"",
+              subsequence(str1, start: 3, end: 6), "bar");
   check-equal("Default start is 0",
               subsequence(str1, end: 3), "foo");
   check-equal("Default end is end of string",
@@ -54,7 +54,7 @@ end test string-subsequence;
 define test string-subsequence-mutation
     (description: "Mutation of string subsequences.")
   let str1 = copy-sequence("foobar");
-  let sub = subsequence(str1, start: 3, end: 7);
+  let sub = subsequence(str1, start: 3, end: 6);
   check-equal("Sub is \"bar\"", sub, "bar");
   sub[2] := 'z';
   check-equal("Sub is \"baz\"", sub, "baz");
