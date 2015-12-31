@@ -122,44 +122,45 @@ end class <heap>;
 
 // The size: keyword is accepted but ignored
 //
-define method initialize (h :: <heap>,
-                          #key size: size,
-                          less-than: less-than = \<)
+define method initialize
+    (h :: <heap>,
+     #key size: size,
+          less-than: less-than = \<)
   next-method();
   h.heap-data      := make(<stretchy-vector>);
   h.heap-less-than := less-than;
 end method initialize;
 
-define method type-for-copy (h :: <heap>) => type :: <type>;
-  <stretchy-vector>;
+define method type-for-copy (h :: <heap>) => (type :: <type>)
+  <stretchy-vector>
 end method type-for-copy;
 
-define method shallow-copy (old-heap :: <heap>) => new-heap :: <heap>;
+define method shallow-copy (old-heap :: <heap>) => (new-heap :: <heap>)
   let new-heap = make(<heap>);
   new-heap.heap-size := old-heap.heap-size;
   new-heap.heap-data := shallow-copy(old-heap.heap-data);
   new-heap.heap-less-than := old-heap.heap-less-than;
-  new-heap;
+  new-heap
 end method shallow-copy;
 
 
 define method as(cls == <heap>, coll :: <collection>)
-    => (result :: <heap>);
+ => (result :: <heap>)
   let heap = make(<heap>);
   for (elem in coll)
     add!(heap, elem);
   end for;
-  heap;
+  heap
 end method as;
 
 
-define method size (h :: <heap>) => size :: <integer>;
-  h.heap-size;
+define method size (h :: <heap>) => (size :: <integer>)
+  h.heap-size
 end method size;
 
 
-define method empty? (h :: <heap>) => answer :: <boolean>;
-  h.heap-size = 0;
+define method empty? (h :: <heap>) => (answer :: <boolean>)
+  h.heap-size = 0
 end method empty?;
 
 
@@ -170,34 +171,38 @@ define constant no-default = "no-default";
 // Special case the top, which can be done efficiently because we
 // don't have to call the iteration protocol.
 //
-define method element(h :: <heap>, index == 0,
-                      #key default = no-default) => elt :: <object>;
+define method element
+    (h :: <heap>, index == 0,
+     #key default = no-default)
+ => (elt :: <object>)
   if (empty?(h))
     if (default == no-default)
-      error("No such element");
+      error("No such element")
     else
-      default;
-    end if;
+      default
+    end if
   else
-    h.heap-data[0];
-  end if;
+    h.heap-data[0]
+  end if
 end method element;
 
 
 // Special case the second as well because it can be done
 // semi-efficiently (again, no iteration protocol)
 //
-define method element(h :: <heap>, index == 1,
-                      #key default = no-default) => elt :: <object>;
+define method element
+    (h :: <heap>, index == 1,
+     #key default = no-default)
+ => (elt :: <object>)
   if (size(h) < 2)
     if (default == no-default)
-      error("No such element");
+      error("No such element")
     else
-      default;
-    end if;
+      default
+    end if
   else
-    h.heap-data[smaller-child(h, 0)];
-  end if;
+    h.heap-data[smaller-child(h, 0)]
+  end if
 end method element;
 
 
@@ -206,10 +211,10 @@ end method element;
 // Special case the top, which can be done efficiently and without the
 // iteration protocol
 //
-define method element-setter
-    (value, h :: <heap>, index == 0) => value :: <object>;
+define method element-setter (value, h :: <heap>, index == 0)
+ => (value :: <object>)
   h.heap-data[0] := value;
-  value;
+  value
 end method element-setter;
 
 
@@ -218,39 +223,44 @@ end method element-setter;
 // (through a call to find-index) to find that element in order to
 // change it.
 //
-define method element-setter
-    (new-elt, h :: <heap>, key :: <integer>) => value :: <object>;
+define method element-setter (new-elt, h :: <heap>, key :: <integer>)
+ => (value :: <object>)
   h.heap-data [find-index(h, h[key])] := new-elt;
 end method element-setter;
 
-define method add! (h :: <heap>, new-elt) => changed-heap :: <heap>;
+define method add! (h :: <heap>, new-elt)
+ => (changed-heap :: <heap>)
   h.heap-data [h.heap-size] := new-elt;
   h.heap-size := 1 + h.heap-size;
   upheap(h, h.heap-size - 1);
-  h;
+  h
 end method add!;
 
-define method add-new!(h :: <heap>, new-elt,
-                       #key test: test = \=, efficient: efficient = #f)
-    => changed-heap :: <heap>;
+define method add-new!
+    (h :: <heap>, new-elt,
+     #key test: test = \=,
+          efficient: efficient = #f)
+ => (changed-heap :: <heap>)
   if (~ member?(new-elt, h, test: test, efficient: efficient))
-    add!(h, new-elt);
+    add!(h, new-elt)
   else
-    h;
-  end if;
+    h
+  end if
 end method add-new!;
 
-define method heap-push(h :: <heap>, new-elt) => changed-heap :: <heap>;
-  add!(h, new-elt);
+define method heap-push (h :: <heap>, new-elt)
+ => (changed-heap :: <heap>)
+  add!(h, new-elt)
 end method heap-push;
 
-define method heap-pop (h :: <heap>) => smallest-item :: <object>;
+define method heap-pop (h :: <heap>)
+ => (smallest-item :: <object>)
   let smallest-item = h.heap-data [0];
   h.heap-data [0] := h.heap-data [size(h) - 1];
 //  remove!(h.heap-data, size(h) - 1);    // Adjust stretchy vector
   h.heap-size := h.heap-size - 1;
   downheap(h, 0);
-  smallest-item;
+  smallest-item
 end method heap-pop;
 
 
@@ -299,10 +309,13 @@ define method remove!
 end method remove!;
 
 
-define method member?(elt, h :: <heap>, #key test: test = \=,
-                      efficient: efficient = #f) => answer :: <boolean>;
+define method member?
+    (elt, h :: <heap>,
+     #key test: test = \=,
+      efficient: efficient = #f)
+ => (answer :: <boolean>)
   let (init, limit, next, finished?, cur-key, cur-elt) =
-    if (efficient)     random-iteration-protocol(h);
+    if (efficient)      random-iteration-protocol(h);
     else                forward-iteration-protocol(h);
     end if;
 
@@ -312,45 +325,52 @@ define method member?(elt, h :: <heap>, #key test: test = \=,
         return(#t);
       end if;
     end for;
-    #f;
-  end block;
+    #f
+  end block
 end method member?;
 
 
 // Can't use backward-iteration-protocol because that uses reverse
 //
-define method reverse(h :: <heap>) => reversed :: <sequence>;
+define method reverse (h :: <heap>)
+ => (reversed :: <sequence>)
   let new-seq = make(type-for-copy(h), size: size(h));
   for (elt in h, index = size(h) - 1  then index - 1)
     new-seq[index] := elt;
   end for;
-  new-seq;
+  new-seq
 end method reverse;
 
 
-define method reverse!(h :: <heap>) => reversed :: <sequence>;
-  reverse(h);
+define method reverse! (h :: <heap>)
+ => (reversed :: <sequence>)
+  reverse(h)
 end method reverse!;
 
 
 define method sort
-    (h :: <heap>, #key test: test = \<, stable: stable = #f)
- => sorted :: <sequence>;
+    (h :: <heap>,
+     #key test: test = \<,
+          stable: stable = #f)
+ => (sorted :: <sequence>)
   if (test == h.heap-less-than)
     let new-seq = make(type-for-copy(h), size: size(h));
     for (elt in h, index = 0 then index + 1)
       new-seq[index] := elt;
     end for;
-    new-seq;
+    new-seq
   else
-    sort(h.heap-data, test: test, stable: stable);
-  end if;
+    sort(h.heap-data, test: test, stable: stable)
+  end if
 end method sort;
 
 
-define method sort!(h :: <heap>, #rest all-keys, #key test, stable)
- => sorted :: <sequence>;
-  apply(sort, h, all-keys);
+define method sort!
+    (h :: <heap>,
+     #rest all-keys,
+     #key test, stable)
+ => (sorted :: <sequence>)
+  apply(sort, h, all-keys)
 end method sort!;
 
 // ---------------------------------------------------------------------
@@ -359,41 +379,42 @@ end method sort!;
 
 // All internal operations specify things by their index into the vector.
 
-define method parent (index :: <integer>) => parent-index :: <integer>;
-  floor/(index - 1, 2);
+define method parent (index :: <integer>)
+ => (parent-index :: <integer>)
+  floor/(index - 1, 2)
 end method parent;
 
 
 define method left-child (index :: <integer>)
-    => left-child-index :: <integer>;
-  2 * index + 1;
+ => (left-child-index :: <integer>)
+  2 * index + 1
 end method left-child;
 
 
 define method right-child (index :: <integer>)
-    => right-child-index :: <integer>;
-  2 * index + 2;
+ => (right-child-index :: <integer>)
+  2 * index + 2
 end method right-child;
 
 
 // Assumes the left child is valid, although the right child might not be.
 //
 define method smaller-child (h :: <heap>, index :: <integer>)
-    => smaller-child-index :: <integer>;
+ => (smaller-child-index :: <integer>)
   if (right-child(index) = size(h))
-    left-child(index);            // There is no right child
+    left-child(index)            // There is no right child
   elseif (h.heap-less-than(h.heap-data [right-child(index)],
                            h.heap-data [left-child(index)]))
-    right-child(index);
+    right-child(index)
   else
-    left-child(index);
-  end if;
+    left-child(index)
+  end if
 end method;
 
 
 // Move a small item up
 //
-define method upheap (h :: <heap>, index :: <integer>);
+define method upheap (h :: <heap>, index :: <integer>) => ()
   let item = h.heap-data [index];
 
   while (index ~= 0   &
@@ -407,7 +428,7 @@ end method upheap;
 
 // Move a big item down
 //
-define method downheap (h :: <heap>, index :: <integer>);
+define method downheap (h :: <heap>, index :: <integer>) => ()
   let item = h.heap-data [index];
 
   while ( left-child(index) < size(h)
@@ -420,12 +441,13 @@ define method downheap (h :: <heap>, index :: <integer>);
 end method downheap;
 
 
-define method find-index(h :: <heap>, elt) => index :: <integer>;
+define method find-index (h :: <heap>, elt)
+ => (index :: <integer>)
   let index = 0;
   until (h.heap-data[index] == elt)
     index := index + 1;
   end until;
-  index;
+  index
 end method find-index;
 
 // ---------------------------------------------------------------------
@@ -439,28 +461,28 @@ define method forward-iteration-protocol (coll :: <heap>)
  => (initial-state :: <object>, limit :: <object>, next-state :: <function>,
      finished-state? :: <function>, current-key :: <function>,
      current-element :: <function>, current-element-setter :: <function>,
-     copy-state :: <function>);
+     copy-state :: <function>)
   values(shallow-copy(coll),          // initial-state
          #f,                          // limit (not used)
                                       // next-state
-         method(h :: <heap>, state :: <heap>) => new-state :: <heap>;
+         method(h :: <heap>, state :: <heap>) => (new-state :: <heap>)
              heap-pop(state);
-             state;
+             state
          end method,
 
                                       // finished-state?
-         method(h :: <heap>, state :: <heap>, limit);
-             empty?(state);
+         method(h :: <heap>, state :: <heap>, limit)
+             empty?(state)
          end method,
 
                                       // current-key
-         method(h :: <heap>, state :: <heap>) => key :: <integer>;
-             h.heap-size - state.heap-size;
+         method(h :: <heap>, state :: <heap>) => (key :: <integer>)
+             h.heap-size - state.heap-size
          end method,
 
                                       // current-element
          method(h :: <heap>, state :: <heap>)
-             first(state);
+             first(state)
          end method,
 
                                       // current-element-setter
@@ -471,9 +493,9 @@ define method forward-iteration-protocol (coll :: <heap>)
          end method,
 
                                       // copy-state
-         method(h :: <heap>, state :: <heap>) => new-state :: <heap>;
-             shallow-copy(state);
-         end method);
+         method(h :: <heap>, state :: <heap>) => (new-state :: <heap>)
+             shallow-copy(state)
+         end method)
 end method forward-iteration-protocol;
 
 
@@ -486,42 +508,42 @@ define method backward-iteration-protocol (coll :: <heap>)
  => (initial-state :: <object>, limit :: <object>, next-state :: <function>,
      finished-state? :: <function>, current-key :: <function>,
      current-element :: <function>, current-element-setter :: <function>,
-     copy-state :: <function>);
+     copy-state :: <function>)
   let sorted-vector = reverse(coll);
 
   values(coll.heap-size - 1,          // initial-state
          -1,                          // limit
                                       // next-state
-         method(h :: <heap>, state :: <integer>) => new-state :: <integer>;
-             state - 1;
+         method (h :: <heap>, state :: <integer>) => (new-state :: <integer>)
+           state - 1
          end method,
 
                                       // finished-state?
-         method(h :: <heap>, state :: <integer>, limit :: <integer>);
-             state = limit;
+         method (h :: <heap>, state :: <integer>, limit :: <integer>)
+           state = limit
          end method,
 
                                       // current-key
-         method(h :: <heap>, state :: <integer>) => key :: <integer>;
-             state;
+         method (h :: <heap>, state :: <integer>) => (key :: <integer>)
+           state
          end method,
 
                                       // current-element
-         method(h :: <heap>, state :: <integer>)
-             sorted-vector[state];
+         method (h :: <heap>, state :: <integer>)
+           sorted-vector[state]
          end method,
 
                                       // current-element-setter
-         method(value, h :: <heap>, state :: <integer>)
-             let index = find-index(h, sorted-vector[state]);
-             h.heap-data[index] := value;
-              sorted-vector[state] := value;
+         method (value, h :: <heap>, state :: <integer>)
+           let index = find-index(h, sorted-vector[state]);
+           h.heap-data[index] := value;
+           sorted-vector[state] := value;
          end method,
 
                                       // copy-state
-         method(h :: <heap>, state :: <integer>) => new-state :: <integer>;
-             state;
-         end method);
+         method (h :: <heap>, state :: <integer>) => (new-state :: <integer>)
+             state
+         end method)
 end method backward-iteration-protocol;
 
 
@@ -537,34 +559,33 @@ define method random-iteration-protocol (collection :: <heap>)
          size(collection),                // limit
 
                                  // next-state
-         method (h :: <heap>, state :: <integer>) => next-state :: <integer>;
-           state + 1;
+         method (h :: <heap>, state :: <integer>) => (next-state :: <integer>)
+           state + 1
          end method,
 
                                  // finished-state?
-         method (h :: <heap>, state :: <integer>, limit :: <integer>);
-           state = limit;
+         method (h :: <heap>, state :: <integer>, limit :: <integer>)
+           state = limit
          end method,
 
                                  // current-key
-         method (h :: <heap>, state :: <integer>) => key :: <integer>;
+         method (h :: <heap>, state :: <integer>) => (key :: <integer>)
            error("I have no idea what the current-key is.");
          end method,
 
                                  // current-element
-         method (h :: <heap>, state :: <integer>);
+         method (h :: <heap>, state :: <integer>)
            h.heap-data [state];
          end method,
 
                                  // current-element-setter
-         method (value, h :: <heap>, state :: <integer>);
-           h.heap-data[state] := value;
+         method (value, h :: <heap>, state :: <integer>)
+           h.heap-data[state] := value
          end method,
 
                                  // copy-state
-         method (h :: <heap>, state :: <integer>) => state :: <integer>;
-           state;
-         end method
-        );
+         method (h :: <heap>, state :: <integer>) => (state :: <integer>)
+           state
+         end method)
 end method random-iteration-protocol;
 
