@@ -166,8 +166,6 @@ end method empty?;
 
 define constant no-default = "no-default";
 
-// Inherit inefficient method for element.
-
 // Special case the top, which can be done efficiently because we
 // don't have to call the iteration protocol.
 //
@@ -203,6 +201,28 @@ define method element
   else
     h.heap-data[smaller-child(h, 0)]
   end if
+end method element;
+
+
+define method element
+    (h :: <heap>, index :: <integer>,
+     #key default = no-default)
+ => (elt :: <object>)
+  let (initial-state, limit, next-state, finished?, current-key,
+       current-element,current-element-setter)
+    = forward-iteration-protocol(h);
+  for (state = initial-state then next-state(h, state),
+       counter = index then counter - 1,
+       until: (counter <= 0) | finished?(h, state, limit))
+  finally
+    if (counter == 0)
+      current-element(h, state)
+    elseif (default == no-default)
+      error("element: <heap> has no %dth element", index);
+    else
+      default
+    end if
+  end for
 end method element;
 
 

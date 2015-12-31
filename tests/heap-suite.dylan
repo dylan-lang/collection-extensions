@@ -30,15 +30,18 @@ define test basic-integer-heap ()
   let h = make(<heap>);
   heap-push(h, 3);
   heap-push(h, 1);
+  heap-push(h, 4);
 
   // the heap looks sane
-  assert-equal(2, h.size);
+  assert-equal(3, h.size);
   assert-equal(1, h[0]);
   assert-equal(3, h[1]);
+  assert-equal(4, h[2]);
 
   // member works for the elements in the heap
   assert-true(member?(1, h));
   assert-true(member?(3, h));
+  assert-true(member?(4, h));
 
   // and not for something not in the heap
   assert-false(member?(2, h));
@@ -47,9 +50,10 @@ define test basic-integer-heap ()
   assert-equal(1, heap-pop(h));
 
   // and the heap looks sane after the heap-pop.
-  assert-equal(1, h.size);
+  assert-equal(2, h.size);
   assert-false(member?(1, h));
   assert-equal(3, h[0]);
+  assert-equal(4, h[1]);
 end test basic-integer-heap;
 
 define test heap-empty ()
