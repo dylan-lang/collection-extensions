@@ -1,18 +1,21 @@
-*********************
-Collection Extensions
-*********************
+*********************************
+The collection-extensions Library
+*********************************
+
+.. current-library:: collection-extensions
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: Contents:
 
+   collection-utilities
    heap
    sde-vector
+   self-organizing-list
    sequence-diff
    sequence-utilities
-   self-organizing-list
-   string-search
    subseq
+   vector-search
 
 Indices and tables
 ==================

@@ -1,6 +1,9 @@
 The heap Module
 ===============
 
+.. current-library:: collection-extensions
+.. current-module:: vector-search
+
 Overview
 --------
 
@@ -89,4 +92,44 @@ accordingly bad performance.
 Reference
 ---------
 
-**TODO**: https://github.com/dylan-lang/collection-extensions/issues/2
+The HEAP module
+***************
+
+.. current-module:: heap
+
+
+.. class:: <heap>
+
+   :superclasses: :drm:`<mutable-sequence>`
+
+   :keyword less-than: An instance of :drm:`<object>`.
+   :keyword size: An instance of :drm:`<object>`.
+
+.. generic-function:: heap-pop
+
+   :signature: heap-pop (h) => (smallest-item)
+
+   :parameter h: An instance of :class:`<heap>`.
+   :value smallest-item: An instance of :drm:`<object>`.
+
+.. generic-function:: heap-push
+
+   :signature: heap-push (h new-elt) => (changed-heap)
+
+   :parameter h: An instance of :class:`<heap>`.
+   :parameter new-elt: An instance of :drm:`<object>`.
+   :value changed-heap: An instance of :class:`<heap>`.
+
+.. generic-function:: random-iteration-protocol
+
+   :signature: random-iteration-protocol (collection) => (initial-state limit next-state finished-state? current-key current-element current-element-setter copy-state)
+
+   :parameter collection: An instance of :class:`<heap>`.
+   :value initial-state: An instance of :drm:`<object>`.
+   :value limit: An instance of :drm:`<object>`.
+   :value next-state: An instance of :drm:`<function>`.
+   :value finished-state?: An instance of :drm:`<function>`.
+   :value current-key: An instance of :drm:`<function>`.
+   :value current-element: An instance of :drm:`<function>`.
+   :value current-element-setter: An instance of :drm:`<function>`.
+   :value copy-state: An instance of :drm:`<function>`.
