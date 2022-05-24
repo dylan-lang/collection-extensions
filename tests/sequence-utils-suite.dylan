@@ -41,57 +41,8 @@ define test pop-test (description: "Pop! macro")
   check-equal("Pop singleton location", x, #());
 end test pop-test;
 
-define test split-empty-vector
-    (description: "Split-at called on an empty vector")
-  let result = split-at(#(), ',');
-  check("Split of empty list is singleton", singleton?, result);
-  check("Split of empty list has empty member", empty?, result[0]);
-end test split-empty-vector;
-
-define test split-string-1
-    (description: "Split a string without commas")
-  let result = split-at("abc", ',');
-  check("Split is singleton", singleton?, result);
-  check-equal("Member equal to whole string", as(<string>, result[0]), "abc");
-end test split-string-1;
-
-define test split-string-2
-    (description: "Split a string with 2 commas")
-  let result = split-at("a,bc,def", ',');
-  check-equal("Split contains three elements", 3, result.size);
-  check-equal("First string is \"a\"", "a", result[0]);
-  check-equal("Second string is \"bc\"", "bc", result[1]);
-  check-equal("Thrid string is \"def\"", "def", result[2]);
-end test split-string-2;
-
-define test split-string-3
-    (description: "Split a string with trailing comma")
-  let result = split-at("a,bc,def,", ',');
-  check-equal("Split contains four elements", 4, result.size);
-  check-equal("First string is \"a\"", "a", result[0]);
-  check-equal("Second string is \"bc\"", "bc", result[1]);
-  check-equal("Thrid string is \"def\"", "def", result[2]);
-  check-equal("Thrid string is empty", "", result[3]);
-end test split-string-3;
-
-define test split-string-4
-    (description: "Split a string with 3 semicolons")
-  let result = split-at("\"a A\";\"b B\";c;d", ';');
-  check-equal("Split contains three elements", 4, result.size);
-  check-equal("First string is \"a A\"", "\"a A\"", result[0]);
-  check-equal("Second string is \"b B\"", "\"b B\"", result[1]);
-  check-equal("Thrid string is \"c\"", "c", result[2]);
-  check-equal("Thrid string is \"d\"", "d", result[3]);
-end test split-string-4;
-
-
 define suite sequence-utilities-suite
     (description: "Test suite for the sequence-utilities module.")
   test push-test;
   test pop-test;
-  test split-empty-vector;
-  test split-string-1;
-  test split-string-2;
-  test split-string-3;
-  test split-string-4;
 end suite sequence-utilities-suite;
