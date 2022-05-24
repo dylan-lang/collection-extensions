@@ -588,27 +588,3 @@ define method precedes?(elt-1, elt-2, seq :: <sequence>,
     not-found;
   end block;
 end method precedes?;
-
-// SPLIT-AT -- split a sequence at a token.
-//
-// Replace with common-dylan:split.  --cgay
-define function split-at
-    (sequence :: <sequence>, token, #key test = \=)
- => split-sequence :: <sequence>;
-  let result = make(<stretchy-vector>);
-  let current-item = make(<stretchy-vector>);
-  for (elt in sequence)
-    if (test(elt, token))
-      add!(result, current-item);
-      current-item := make(<stretchy-vector>);
-    else
-      add!(current-item, elt);
-    end if;
-  finally
-    // Add the last part.  If the line ends with Token we add
-    // an empty sequence.
-    add!(result, current-item);
-  end for;
-  result;
-end function split-at;
-

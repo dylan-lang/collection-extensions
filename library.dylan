@@ -100,6 +100,5 @@ define module sequence-utilities
   export concatenate-map, pair-do, choose-map;
   export partition, assoc, apair, alist-copy, alist-delete;
   export satisfies, index, find, find-tail, precedes?;
-  export split-at;
 end module sequence-utilities;
 
