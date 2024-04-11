@@ -1,0 +1,914 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" />
+
+    <!-- Generated with Sphinx 7.1.2 and Furo 2024.01.29 --><title>API Index - Collection Extensions</title>
+<link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=135e06be" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=36a5483c" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand">Collection Extensions</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
+  
+  
+  <span class="sidebar-brand-text">Collection Extensions</span>
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="collection-utilities.html">The collection-utilities Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="heap.html">The heap Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sde-vector.html">The sde-vector Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="self-organizing-list.html">The self-organizing-list Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sequence-diff.html">The sequence-diff Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sequence-utilities.html">The sequence-utilities Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="subseq.html">The subseq Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vector-search.html">The vector-search Module</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          
+<section class="domainindex-section">
+  <h1>API Index</h1>
+  <div class="domainindex-jumpbox"><a href="#cap-A"><strong>A</strong></a> | <a href="#cap-B"><strong>B</strong></a> | <a href="#cap-C"><strong>C</strong></a> | <a href="#cap-D"><strong>D</strong></a> | <a href="#cap-E"><strong>E</strong></a> | <a href="#cap-F"><strong>F</strong></a> | <a href="#cap-H"><strong>H</strong></a> | <a href="#cap-I"><strong>I</strong></a> | <a href="#cap-K"><strong>K</strong></a> | <a href="#cap-L"><strong>L</strong></a> | <a href="#cap-N"><strong>N</strong></a> | <a href="#cap-P"><strong>P</strong></a> | <a href="#cap-R"><strong>R</strong></a> | <a href="#cap-S"><strong>S</strong></a> | <a href="#cap-T"><strong>T</strong></a> | <a href="#cap-U"><strong>U</strong></a> | <a href="#cap-X"><strong>X</strong></a></div>
+</section>
+<table class="domainindex-table">
+  <tr class="pcap">
+    <td></td><td>&#160;</td><td></td>
+  </tr>
+  <tr class="cap" id="cap-A">
+    <td></td><td><strong>A</strong></td><td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+        <a href="sequence-utilities.html#collection-extensions:sequence-utilities:alist-copy"><code class="xref">alist-copy</code></a> <em>(function)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+        <a href="sequence-utilities.html#collection-extensions:sequence-utilities:alist-delete"><code class="xref">alist-delete</code></a> <em>(function)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+        <a href="sequence-utilities.html#collection-extensions:sequence-utilities:apair"><code class="xref">apair</code></a> <em>(function)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+        <a href="sequence-utilities.html#collection-extensions:sequence-utilities:assoc"><code class="xref">assoc</code></a> <em>(function)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr class="pcap">
+    <td></td><td>&#160;</td><td></td>
+  </tr>
+  <tr class="cap" id="cap-B">
+    <td></td><td><strong>B</strong></td><td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+        <a href="subseq.html#collection-extensions:subseq:[byte-vector-subsequence]"><code class="xref">&lt;byte-vector-subsequence&gt;</code></a> <em>(class)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr class="pcap">
+    <td></td><td>&#160;</td><td></td>
+  </tr>
+  <tr class="cap" id="cap-C">
+    <td></td><td><strong>C</strong></td><td></td>
+  </tr>
+  <tr>
+    <td><img src="_static/minus.png" class="toggler"
+              id="toggle-1" style="display: none" alt="-" /></td>
+    <td>
+        <code class="xref">choose-map</code></td><td>
+    <em></em></td>
+  </tr>
+  <tr class="cg-1">
+    <td></td>
+    <td>&#160;&#160;&#160;
+        <a href="sequence-utilities.html#collection-extensions:sequence-utilities:choose-map"><code class="xref">collection-extensions:sequence-utilities:choose-map</code></a> <em>(generic function)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr class="cg-1">
+    <td></td>
+    <td>&#160;&#160;&#160;
+        <a href="sequence-utilities.html#collection-extensions:sequence-utilities:choose-map([function],[function],[list])"><code class="xref">collection-extensions:sequence-utilities:choose-map(&lt;function&gt;, &lt;function&gt;, &lt;list&gt;)</code></a> <em>(method)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr class="cg-1">
+    <td></td>
+    <td>&#160;&#160;&#160;
+        <a href="sequence-utilities.html#collection-extensions:sequence-utilities:choose-map([function],[function],[sequence])"><code class="xref">collection-extensions:sequence-utilities:choose-map(&lt;function&gt;, &lt;function&gt;, &lt;sequence&gt;)</code></a> <em>(method)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr>
+    <td><img src="_static/minus.png" class="toggler"
+              id="toggle-2" style="display: none" alt="-" /></td>
+    <td>
+        <code class="xref">concatenate-map</code></td><td>
+    <em></em></td>
+  </tr>
+  <tr class="cg-2">
+    <td></td>
+    <td>&#160;&#160;&#160;
+        <a href="sequence-utilities.html#collection-extensions:sequence-utilities:concatenate-map"><code class="xref">collection-extensions:sequence-utilities:concatenate-map</code></a> <em>(generic function)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr class="cg-2">
+    <td></td>
+    <td>&#160;&#160;&#160;
+        <a href="sequence-utilities.html#collection-extensions:sequence-utilities:concatenate-map([function],[list])"><code class="xref">collection-extensions:sequence-utilities:concatenate-map(&lt;function&gt;, &lt;list&gt;)</code></a> <em>(method)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr class="cg-2">
+    <td></td>
+    <td>&#160;&#160;&#160;
+        <a href="sequence-utilities.html#collection-extensions:sequence-utilities:concatenate-map([function],[sequence])"><code class="xref">collection-extensions:sequence-utilities:concatenate-map(&lt;function&gt;, &lt;sequence&gt;)</code></a> <em>(method)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr class="pcap">
+    <td></td><td>&#160;</td><td></td>
+  </tr>
+  <tr class="cap" id="cap-D">
+    <td></td><td><strong>D</strong></td><td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+        <a href="sequence-diff.html#collection-extensions:sequence-diff:[delete-entry]"><code class="xref">&lt;delete-entry&gt;</code></a> <em>(class)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+        <a href="sequence-diff.html#collection-extensions:sequence-diff:dest-index"><code class="xref">dest-index</code></a> <em>(generic function)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr>
+    <td><img src="_static/minus.png" class="toggler"
+              id="toggle-3" style="display: none" alt="-" /></td>
+    <td>
+        <code class="xref">drop</code></td><td>
+    <em></em></td>
+  </tr>
+  <tr class="cg-3">
+    <td></td>
+    <td>&#160;&#160;&#160;
+        <a href="sequence-utilities.html#collection-extensions:sequence-utilities:drop"><code class="xref">collection-extensions:sequence-utilities:drop</code></a> <em>(generic function)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr class="cg-3">
+    <td></td>
+    <td>&#160;&#160;&#160;
+        <a href="sequence-utilities.html#collection-extensions:sequence-utilities:drop([sequence],[integer])"><code class="xref">collection-extensions:sequence-utilities:drop(&lt;sequence&gt;, &lt;integer&gt;)</code></a> <em>(method)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr class="pcap">
+    <td></td><td>&#160;</td><td></td>
+  </tr>
+  <tr class="cap" id="cap-E">
+    <td></td><td><strong>E</strong></td><td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+        <a href="sequence-diff.html#collection-extensions:sequence-diff:element-count"><code class="xref">element-count</code></a> <em>(generic function)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr class="pcap">
+    <td></td><td>&#160;</td><td></td>
+  </tr>
+  <tr class="cap" id="cap-F">
+    <td></td><td><strong>F</strong></td><td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+        <a href="sequence-utilities.html#collection-extensions:sequence-utilities:find"><code class="xref">find</code></a> <em>(generic function)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+        <a href="vector-search.html#collection-extensions:vector-search:find-first-key"><code class="xref">find-first-key</code></a> <em>(generic function)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+        <a href="vector-search.html#collection-extensions:vector-search:find-last-key"><code class="xref">find-last-key</code></a> <em>(generic function)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr>
+    <td><img src="_static/minus.png" class="toggler"
+              id="toggle-4" style="display: none" alt="-" /></td>
+    <td>
+        <code class="xref">find-tail</code></td><td>
+    <em></em></td>
+  </tr>
+  <tr class="cg-4">
+    <td></td>
+    <td>&#160;&#160;&#160;
+        <a href="sequence-utilities.html#collection-extensions:sequence-utilities:find-tail"><code class="xref">collection-extensions:sequence-utilities:find-tail</code></a> <em>(generic function)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr class="cg-4">
+    <td></td>
+    <td>&#160;&#160;&#160;
+        <a href="sequence-utilities.html#collection-extensions:sequence-utilities:find-tail([function],[empty-list])"><code class="xref">collection-extensions:sequence-utilities:find-tail(&lt;function&gt;, &lt;empty-list&gt;)</code></a> <em>(method)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr class="cg-4">
+    <td></td>
+    <td>&#160;&#160;&#160;
+        <a href="sequence-utilities.html#collection-extensions:sequence-utilities:find-tail([function],[pair])"><code class="xref">collection-extensions:sequence-utilities:find-tail(&lt;function&gt;, &lt;pair&gt;)</code></a> <em>(method)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr class="cg-4">
+    <td></td>
+    <td>&#160;&#160;&#160;
+        <a href="sequence-utilities.html#collection-extensions:sequence-utilities:find-tail([function],[sequence])"><code class="xref">collection-extensions:sequence-utilities:find-tail(&lt;function&gt;, &lt;sequence&gt;)</code></a> <em>(method)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+        <a href="sequence-utilities.html#collection-extensions:sequence-utilities:foldl"><code class="xref">foldl</code></a> <em>(function)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+        <a href="sequence-utilities.html#collection-extensions:sequence-utilities:foldr"><code class="xref">foldr</code></a> <em>(function)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr class="pcap">
+    <td></td><td>&#160;</td><td></td>
+  </tr>
+  <tr class="cap" id="cap-H">
+    <td></td><td><strong>H</strong></td><td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+        <a href="heap.html#collection-extensions:heap:[heap]"><code class="xref">&lt;heap&gt;</code></a> <em>(class)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+        <a href="sequence-utilities.html#collection-extensions:sequence-utilities:heads"><code class="xref">heads</code></a> <em>(function)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+        <a href="heap.html#collection-extensions:heap:heap-pop"><code class="xref">heap-pop</code></a> <em>(generic function)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+        <a href="heap.html#collection-extensions:heap:heap-push"><code class="xref">heap-push</code></a> <em>(generic function)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr class="pcap">
+    <td></td><td>&#160;</td><td></td>
+  </tr>
+  <tr class="cap" id="cap-I">
+    <td></td><td><strong>I</strong></td><td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+        <a href="sequence-diff.html#collection-extensions:sequence-diff:[insert-entry]"><code class="xref">&lt;insert-entry&gt;</code></a> <em>(class)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+        <a href="sequence-utilities.html#collection-extensions:sequence-utilities:index"><code class="xref">index</code></a> <em>(generic function)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr class="pcap">
+    <td></td><td>&#160;</td><td></td>
+  </tr>
+  <tr class="cap" id="cap-K">
+    <td></td><td><strong>K</strong></td><td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+        <a href="collection-utilities.html#collection-extensions:collection-utilities:key-exists?"><code class="xref">key-exists?</code></a> <em>(generic function)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr class="pcap">
+    <td></td><td>&#160;</td><td></td>
+  </tr>
+  <tr class="cap" id="cap-L">
+    <td></td><td><strong>L</strong></td><td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+        <a href="sequence-utilities.html#collection-extensions:sequence-utilities:last-pair"><code class="xref">last-pair</code></a> <em>(function)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+        <a href="sequence-utilities.html#collection-extensions:sequence-utilities:list*"><code class="xref">list*</code></a> <em>(function)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr>
+    <td><img src="_static/minus.png" class="toggler"
+              id="toggle-5" style="display: none" alt="-" /></td>
+    <td>
+        <code class="xref">list?</code></td><td>
+    <em></em></td>
+  </tr>
+  <tr class="cg-5">
+    <td></td>
+    <td>&#160;&#160;&#160;
+        <a href="sequence-utilities.html#collection-extensions:sequence-utilities:list?"><code class="xref">collection-extensions:sequence-utilities:list?</code></a> <em>(generic function)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr class="cg-5">
+    <td></td>
+    <td>&#160;&#160;&#160;
+        <a href="sequence-utilities.html#collection-extensions:sequence-utilities:list?([list])"><code class="xref">collection-extensions:sequence-utilities:list?(&lt;list&gt;)</code></a> <em>(method)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr class="cg-5">
+    <td></td>
+    <td>&#160;&#160;&#160;
+        <a href="sequence-utilities.html#collection-extensions:sequence-utilities:list?([object])"><code class="xref">collection-extensions:sequence-utilities:list?(&lt;object&gt;)</code></a> <em>(method)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr class="pcap">
+    <td></td><td>&#160;</td><td></td>
+  </tr>
+  <tr class="cap" id="cap-N">
+    <td></td><td><strong>N</strong></td><td></td>
+  </tr>
+  <tr>
+    <td><img src="_static/minus.png" class="toggler"
+              id="toggle-6" style="display: none" alt="-" /></td>
+    <td>
+        <code class="xref">null?</code></td><td>
+    <em></em></td>
+  </tr>
+  <tr class="cg-6">
+    <td></td>
+    <td>&#160;&#160;&#160;
+        <a href="sequence-utilities.html#collection-extensions:sequence-utilities:null?"><code class="xref">collection-extensions:sequence-utilities:null?</code></a> <em>(generic function)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr class="cg-6">
+    <td></td>
+    <td>&#160;&#160;&#160;
+        <a href="sequence-utilities.html#collection-extensions:sequence-utilities:null?([empty-list])"><code class="xref">collection-extensions:sequence-utilities:null?(&lt;empty-list&gt;)</code></a> <em>(method)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr class="cg-6">
+    <td></td>
+    <td>&#160;&#160;&#160;
+        <a href="sequence-utilities.html#collection-extensions:sequence-utilities:null?([object])"><code class="xref">collection-extensions:sequence-utilities:null?(&lt;object&gt;)</code></a> <em>(method)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr class="pcap">
+    <td></td><td>&#160;</td><td></td>
+  </tr>
+  <tr class="cap" id="cap-P">
+    <td></td><td><strong>P</strong></td><td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+        <a href="sequence-utilities.html#collection-extensions:sequence-utilities:pair-do"><code class="xref">pair-do</code></a> <em>(function)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+        <a href="sequence-utilities.html#collection-extensions:sequence-utilities:pair-foldl"><code class="xref">pair-foldl</code></a> <em>(function)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+        <a href="sequence-utilities.html#collection-extensions:sequence-utilities:pair-foldr"><code class="xref">pair-foldr</code></a> <em>(function)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr>
+    <td><img src="_static/minus.png" class="toggler"
+              id="toggle-7" style="display: none" alt="-" /></td>
+    <td>
+        <code class="xref">pair?</code></td><td>
+    <em></em></td>
+  </tr>
+  <tr class="cg-7">
+    <td></td>
+    <td>&#160;&#160;&#160;
+        <a href="sequence-utilities.html#collection-extensions:sequence-utilities:pair?"><code class="xref">collection-extensions:sequence-utilities:pair?</code></a> <em>(generic function)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr class="cg-7">
+    <td></td>
+    <td>&#160;&#160;&#160;
+        <a href="sequence-utilities.html#collection-extensions:sequence-utilities:pair?([object])"><code class="xref">collection-extensions:sequence-utilities:pair?(&lt;object&gt;)</code></a> <em>(method)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr class="cg-7">
+    <td></td>
+    <td>&#160;&#160;&#160;
+        <a href="sequence-utilities.html#collection-extensions:sequence-utilities:pair?([pair])"><code class="xref">collection-extensions:sequence-utilities:pair?(&lt;pair&gt;)</code></a> <em>(method)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+        <a href="sequence-utilities.html#collection-extensions:sequence-utilities:partition"><code class="xref">partition</code></a> <em>(function)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+        <a href="sequence-utilities.html#collection-extensions:sequence-utilities:pop!"><code class="xref">pop!</code></a> <em>(macro)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+        <a href="sequence-utilities.html#collection-extensions:sequence-utilities:precedes?"><code class="xref">precedes?</code></a> <em>(generic function)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+        <a href="sequence-utilities.html#collection-extensions:sequence-utilities:push!"><code class="xref">push!</code></a> <em>(macro)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr class="pcap">
+    <td></td><td>&#160;</td><td></td>
+  </tr>
+  <tr class="cap" id="cap-R">
+    <td></td><td><strong>R</strong></td><td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+        <a href="heap.html#collection-extensions:heap:random-iteration-protocol"><code class="xref">random-iteration-protocol</code></a> <em>(generic function)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+        <a href="sequence-utilities.html#collection-extensions:sequence-utilities:reduce-l"><code class="xref">reduce-l</code></a> <em>(function)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+        <a href="sequence-utilities.html#collection-extensions:sequence-utilities:reduce-r"><code class="xref">reduce-r</code></a> <em>(function)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr>
+    <td><img src="_static/minus.png" class="toggler"
+              id="toggle-8" style="display: none" alt="-" /></td>
+    <td>
+        <code class="xref">reverse-append</code></td><td>
+    <em></em></td>
+  </tr>
+  <tr class="cg-8">
+    <td></td>
+    <td>&#160;&#160;&#160;
+        <a href="sequence-utilities.html#collection-extensions:sequence-utilities:reverse-append"><code class="xref">collection-extensions:sequence-utilities:reverse-append</code></a> <em>(generic function)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr class="cg-8">
+    <td></td>
+    <td>&#160;&#160;&#160;
+        <a href="sequence-utilities.html#collection-extensions:sequence-utilities:reverse-append([list],[list])"><code class="xref">collection-extensions:sequence-utilities:reverse-append(&lt;list&gt;, &lt;list&gt;)</code></a> <em>(method)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr class="cg-8">
+    <td></td>
+    <td>&#160;&#160;&#160;
+        <a href="sequence-utilities.html#collection-extensions:sequence-utilities:reverse-append([sequence],[sequence])"><code class="xref">collection-extensions:sequence-utilities:reverse-append(&lt;sequence&gt;, &lt;sequence&gt;)</code></a> <em>(method)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr class="pcap">
+    <td></td><td>&#160;</td><td></td>
+  </tr>
+  <tr class="cap" id="cap-S">
+    <td></td><td><strong>S</strong></td><td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+        <a href="sequence-diff.html#collection-extensions:sequence-diff:[script-entry]"><code class="xref">&lt;script-entry&gt;</code></a> <em>(class)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+        <a href="sde-vector.html#collection-extensions:sde-vector:[sde-vector]"><code class="xref">&lt;sde-vector&gt;</code></a> <em>(class)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+        <a href="self-organizing-list.html#collection-extensions:self-organizing-list:[self-organizing-list]"><code class="xref">&lt;self-organizing-list&gt;</code></a> <em>(class)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+        <a href="subseq.html#collection-extensions:subseq:[subsequence]"><code class="xref">&lt;subsequence&gt;</code></a> <em>(class)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+        <a href="sequence-utilities.html#collection-extensions:sequence-utilities:satisfies"><code class="xref">satisfies</code></a> <em>(generic function)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+        <a href="sequence-diff.html#collection-extensions:sequence-diff:sequence-diff"><code class="xref">sequence-diff</code></a> <em>(generic function)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr>
+    <td><img src="_static/minus.png" class="toggler"
+              id="toggle-9" style="display: none" alt="-" /></td>
+    <td>
+        <code class="xref">singleton?</code></td><td>
+    <em></em></td>
+  </tr>
+  <tr class="cg-9">
+    <td></td>
+    <td>&#160;&#160;&#160;
+        <a href="collection-utilities.html#collection-extensions:collection-utilities:singleton?"><code class="xref">collection-extensions:collection-utilities:singleton?</code></a> <em>(generic function)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr class="cg-9">
+    <td></td>
+    <td>&#160;&#160;&#160;
+        <a href="collection-utilities.html#collection-extensions:collection-utilities:singleton?([collection])"><code class="xref">collection-extensions:collection-utilities:singleton?(&lt;collection&gt;)</code></a> <em>(method)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr class="cg-9">
+    <td></td>
+    <td>&#160;&#160;&#160;
+        <a href="collection-utilities.html#collection-extensions:collection-utilities:singleton?([empty-list])"><code class="xref">collection-extensions:collection-utilities:singleton?(&lt;empty-list&gt;)</code></a> <em>(method)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr class="cg-9">
+    <td></td>
+    <td>&#160;&#160;&#160;
+        <a href="collection-utilities.html#collection-extensions:collection-utilities:singleton?([pair])"><code class="xref">collection-extensions:collection-utilities:singleton?(&lt;pair&gt;)</code></a> <em>(method)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+        <a href="sequence-diff.html#collection-extensions:sequence-diff:source-index"><code class="xref">source-index</code></a> <em>(generic function)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr>
+    <td><img src="_static/minus.png" class="toggler"
+              id="toggle-10" style="display: none" alt="-" /></td>
+    <td>
+        <code class="xref">subsequence</code></td><td>
+    <em></em></td>
+  </tr>
+  <tr class="cg-10">
+    <td></td>
+    <td>&#160;&#160;&#160;
+        <a href="subseq.html#collection-extensions:subseq:subsequence"><code class="xref">collection-extensions:subseq:subsequence</code></a> <em>(generic function)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr class="cg-10">
+    <td></td>
+    <td>&#160;&#160;&#160;
+        <a href="subseq.html#collection-extensions:subseq:subsequence([byte-vector-subsequence])"><code class="xref">collection-extensions:subseq:subsequence(&lt;byte-vector-subsequence&gt;)</code></a> <em>(method)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr class="cg-10">
+    <td></td>
+    <td>&#160;&#160;&#160;
+        <a href="subseq.html#collection-extensions:subseq:subsequence([byte-vector])"><code class="xref">collection-extensions:subseq:subsequence(&lt;byte-vector&gt;)</code></a> <em>(method)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr class="cg-10">
+    <td></td>
+    <td>&#160;&#160;&#160;
+        <a href="subseq.html#collection-extensions:subseq:subsequence([generic-subsequence])"><code class="xref">collection-extensions:subseq:subsequence(&lt;generic-subsequence&gt;)</code></a> <em>(method)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr class="cg-10">
+    <td></td>
+    <td>&#160;&#160;&#160;
+        <a href="subseq.html#collection-extensions:subseq:subsequence([sequence])"><code class="xref">collection-extensions:subseq:subsequence(&lt;sequence&gt;)</code></a> <em>(method)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr class="cg-10">
+    <td></td>
+    <td>&#160;&#160;&#160;
+        <a href="subseq.html#collection-extensions:subseq:subsequence([string])"><code class="xref">collection-extensions:subseq:subsequence(&lt;string&gt;)</code></a> <em>(method)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr class="cg-10">
+    <td></td>
+    <td>&#160;&#160;&#160;
+        <a href="subseq.html#collection-extensions:subseq:subsequence([subsequence])"><code class="xref">collection-extensions:subseq:subsequence(&lt;subsequence&gt;)</code></a> <em>(method)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr class="cg-10">
+    <td></td>
+    <td>&#160;&#160;&#160;
+        <a href="subseq.html#collection-extensions:subseq:subsequence([vector])"><code class="xref">collection-extensions:subseq:subsequence(&lt;vector&gt;)</code></a> <em>(method)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr class="pcap">
+    <td></td><td>&#160;</td><td></td>
+  </tr>
+  <tr class="cap" id="cap-T">
+    <td></td><td><strong>T</strong></td><td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+        <a href="sequence-utilities.html#collection-extensions:sequence-utilities:tabulate"><code class="xref">tabulate</code></a> <em>(function)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+        <a href="sequence-utilities.html#collection-extensions:sequence-utilities:tails"><code class="xref">tails</code></a> <em>(function)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr>
+    <td><img src="_static/minus.png" class="toggler"
+              id="toggle-11" style="display: none" alt="-" /></td>
+    <td>
+        <code class="xref">take</code></td><td>
+    <em></em></td>
+  </tr>
+  <tr class="cg-11">
+    <td></td>
+    <td>&#160;&#160;&#160;
+        <a href="sequence-utilities.html#collection-extensions:sequence-utilities:take"><code class="xref">collection-extensions:sequence-utilities:take</code></a> <em>(generic function)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr class="cg-11">
+    <td></td>
+    <td>&#160;&#160;&#160;
+        <a href="sequence-utilities.html#collection-extensions:sequence-utilities:take([sequence],[integer])"><code class="xref">collection-extensions:sequence-utilities:take(&lt;sequence&gt;, &lt;integer&gt;)</code></a> <em>(method)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr class="pcap">
+    <td></td><td>&#160;</td><td></td>
+  </tr>
+  <tr class="cap" id="cap-U">
+    <td></td><td><strong>U</strong></td><td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+        <a href="sequence-utilities.html#collection-extensions:sequence-utilities:unfold"><code class="xref">unfold</code></a> <em>(function)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+        <a href="sequence-utilities.html#collection-extensions:sequence-utilities:unfold/tail"><code class="xref">unfold/tail</code></a> <em>(function)</em></td><td>
+    <em></em></td>
+  </tr>
+  <tr class="pcap">
+    <td></td><td>&#160;</td><td></td>
+  </tr>
+  <tr class="cap" id="cap-X">
+    <td></td><td><strong>X</strong></td><td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+        <a href="sequence-utilities.html#collection-extensions:sequence-utilities:xpair"><code class="xref">xpair</code></a> <em>(function)</em></td><td>
+    <em></em></td>
+  </tr>
+</table>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          
+          
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 1998, 1999, 2000  Gwydion Dylan Maintainers
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer no-toc">
+      
+      
+      
+    </aside>
+  </div>
+</div><script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=101dc097"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="_static/scripts/furo.js?v=32e29ea5"></script>
+    
+    <script>DOCUMENTATION_OPTIONS.COLLAPSE_INDEX = true</script></body>
+</html>
