@@ -1,14 +1,14 @@
 <!doctype html>
-<html class="no-js" lang="en" data-content_root="">
+<html class="no-js" lang="en" data-content_root="./">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="The subseq Module" href="subseq.html" /><link rel="prev" title="The sequence-diff Module" href="sequence-diff.html" />
 
-    <!-- Generated with Sphinx 7.1.2 and Furo 2024.01.29 -->
+    <!-- Generated with Sphinx 7.3.7 and Furo 2024.05.06 -->
         <title>The sequence-utilities Module - Collection Extensions</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=135e06be" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=387cc868" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=36a5483c" />
     
     
@@ -68,7 +68,7 @@
   <symbol id="svg-sun" viewBox="0 0 24 24">
     <title>Light mode</title>
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
       <circle cx="12" cy="12" r="5"></circle>
       <line x1="12" y1="1" x2="12" y2="3"></line>
       <line x1="12" y1="21" x2="12" y2="23"></line>
@@ -83,7 +83,7 @@
   <symbol id="svg-moon" viewBox="0 0 24 24">
     <title>Dark mode</title>
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
       <path stroke="none" d="M0 0h24v24H0z" fill="none" />
       <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
     </svg>
@@ -91,7 +91,7 @@
   <symbol id="svg-sun-half" viewBox="0 0 24 24">
     <title>Auto light/dark mode</title>
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
       <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
       <circle cx="12" cy="12" r="9" />
       <path d="M13 12h5" />
@@ -99,6 +99,60 @@
       <path d="M13 18h1" />
       <path d="M13 9h4" />
       <path d="M13 6h1" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" /
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
     </svg>
   </symbol>
 </svg>
@@ -111,6 +165,8 @@
 <label class="overlay toc-overlay" for="__toc">
   <div class="visually-hidden">Hide table of contents sidebar</div>
 </label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
 
 
 
@@ -129,7 +185,8 @@
       <div class="theme-toggle-container theme-toggle-header">
         <button class="theme-toggle">
           <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
-          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
           <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
@@ -183,11 +240,17 @@
           <span>Back to top</span>
         </a>
         <div class="content-icon-container">
-          
+          <div class="view-this-page">
+  <a class="muted-link" href="_sources/sequence-utilities.rst.txt" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div>
 <div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
-              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
               <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
@@ -197,20 +260,20 @@
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
-        <article role="main">
+        <article role="main" id="furo-main-content">
           <section id="the-sequence-utilities-module">
-<h1>The sequence-utilities Module<a class="headerlink" href="#the-sequence-utilities-module" title="Permalink to this heading">#</a></h1>
+<h1>The sequence-utilities Module<a class="headerlink" href="#the-sequence-utilities-module" title="Link to this heading">¶</a></h1>
 <section id="overview">
-<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">¶</a></h2>
 <p>The sequence-utilities module implements some useful methods on sequences.</p>
 </section>
 <section id="reference">
-<h2>Reference<a class="headerlink" href="#reference" title="Permalink to this heading">#</a></h2>
+<h2>Reference<a class="headerlink" href="#reference" title="Link to this heading">¶</a></h2>
 <p><strong>TODO</strong>: These docs are just an auto-generated skeleton so
 far. <a class="reference external" href="https://github.com/dylan-lang/collection-extensions/issues/2">https://github.com/dylan-lang/collection-extensions/issues/2</a></p>
 <dl class="dylan function">
 <dt class="sig sig-object dylan-api dylan" id="collection-extensions:sequence-utilities:alist-copy">
-<span class="sig-name descname"><span class="pre">alist-copy</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:alist-copy" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">alist-copy</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:alist-copy" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Signature<span class="colon">:</span></dt>
 <dd class="field-odd"><p>alist-copy (alist #key key datum cons) =&gt; (new-alist)</p>
@@ -233,7 +296,7 @@ far. <a class="reference external" href="https://github.com/dylan-lang/collectio
 
 <dl class="dylan function">
 <dt class="sig sig-object dylan-api dylan" id="collection-extensions:sequence-utilities:alist-delete">
-<span class="sig-name descname"><span class="pre">alist-delete</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:alist-delete" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">alist-delete</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:alist-delete" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Signature<span class="colon">:</span></dt>
 <dd class="field-odd"><p>alist-delete (elt alist #key key test) =&gt; (#rest results)</p>
@@ -256,7 +319,7 @@ far. <a class="reference external" href="https://github.com/dylan-lang/collectio
 
 <dl class="dylan function">
 <dt class="sig sig-object dylan-api dylan" id="collection-extensions:sequence-utilities:apair">
-<span class="sig-name descname"><span class="pre">apair</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:apair" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">apair</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:apair" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Signature<span class="colon">:</span></dt>
 <dd class="field-odd"><p>apair (key datum aseq #key cons add) =&gt; (new-aseq)</p>
@@ -280,7 +343,7 @@ far. <a class="reference external" href="https://github.com/dylan-lang/collectio
 
 <dl class="dylan function">
 <dt class="sig sig-object dylan-api dylan" id="collection-extensions:sequence-utilities:assoc">
-<span class="sig-name descname"><span class="pre">assoc</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:assoc" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">assoc</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:assoc" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Signature<span class="colon">:</span></dt>
 <dd class="field-odd"><p>assoc (elt seq #key key test) =&gt; (#rest results)</p>
@@ -303,7 +366,7 @@ far. <a class="reference external" href="https://github.com/dylan-lang/collectio
 
 <dl class="dylan generic-function">
 <dt class="sig sig-object dylan-api dylan" id="collection-extensions:sequence-utilities:choose-map">
-<span class="sig-name descname"><span class="pre">choose-map</span></span> <em class="property"><span class="pre">Generic</span> <span class="pre">function</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:choose-map" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">choose-map</span></span> <em class="property"><span class="pre">Generic</span> <span class="pre">function</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:choose-map" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Signature<span class="colon">:</span></dt>
 <dd class="field-odd"><p>choose-map (pred func seq #rest seqs) =&gt; (#rest results)</p>
@@ -326,17 +389,17 @@ far. <a class="reference external" href="https://github.com/dylan-lang/collectio
 
 <dl class="dylan method">
 <dt class="sig sig-object dylan-api dylan" id="collection-extensions:sequence-utilities:choose-map([function],[function],[sequence])">
-<span class="sig-name descname"><span class="pre">choose-map(&lt;function&gt;,</span> <span class="pre">&lt;function&gt;,</span> <span class="pre">&lt;sequence&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:choose-map([function],[function],[sequence])" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">choose-map(&lt;function&gt;,</span> <span class="pre">&lt;function&gt;,</span> <span class="pre">&lt;sequence&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:choose-map([function],[function],[sequence])" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="dylan method">
 <dt class="sig sig-object dylan-api dylan" id="collection-extensions:sequence-utilities:choose-map([function],[function],[list])">
-<span class="sig-name descname"><span class="pre">choose-map(&lt;function&gt;,</span> <span class="pre">&lt;function&gt;,</span> <span class="pre">&lt;list&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:choose-map([function],[function],[list])" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">choose-map(&lt;function&gt;,</span> <span class="pre">&lt;function&gt;,</span> <span class="pre">&lt;list&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:choose-map([function],[function],[list])" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="dylan generic-function">
 <dt class="sig sig-object dylan-api dylan" id="collection-extensions:sequence-utilities:concatenate-map">
-<span class="sig-name descname"><span class="pre">concatenate-map</span></span> <em class="property"><span class="pre">Generic</span> <span class="pre">function</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:concatenate-map" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">concatenate-map</span></span> <em class="property"><span class="pre">Generic</span> <span class="pre">function</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:concatenate-map" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Signature<span class="colon">:</span></dt>
 <dd class="field-odd"><p>concatenate-map (func seq #rest seqs) =&gt; (#rest results)</p>
@@ -358,17 +421,17 @@ far. <a class="reference external" href="https://github.com/dylan-lang/collectio
 
 <dl class="dylan method">
 <dt class="sig sig-object dylan-api dylan" id="collection-extensions:sequence-utilities:concatenate-map([function],[sequence])">
-<span class="sig-name descname"><span class="pre">concatenate-map(&lt;function&gt;,</span> <span class="pre">&lt;sequence&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:concatenate-map([function],[sequence])" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">concatenate-map(&lt;function&gt;,</span> <span class="pre">&lt;sequence&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:concatenate-map([function],[sequence])" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="dylan method">
 <dt class="sig sig-object dylan-api dylan" id="collection-extensions:sequence-utilities:concatenate-map([function],[list])">
-<span class="sig-name descname"><span class="pre">concatenate-map(&lt;function&gt;,</span> <span class="pre">&lt;list&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:concatenate-map([function],[list])" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">concatenate-map(&lt;function&gt;,</span> <span class="pre">&lt;list&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:concatenate-map([function],[list])" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="dylan generic-function">
 <dt class="sig sig-object dylan-api dylan" id="collection-extensions:sequence-utilities:drop">
-<span class="sig-name descname"><span class="pre">drop</span></span> <em class="property"><span class="pre">Open</span> <span class="pre">Generic</span> <span class="pre">function</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:drop" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">drop</span></span> <em class="property"><span class="pre">Open</span> <span class="pre">Generic</span> <span class="pre">function</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:drop" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Signature<span class="colon">:</span></dt>
 <dd class="field-odd"><p>drop (collection k) =&gt; (#rest results)</p>
@@ -389,12 +452,12 @@ far. <a class="reference external" href="https://github.com/dylan-lang/collectio
 
 <dl class="dylan method">
 <dt class="sig sig-object dylan-api dylan" id="collection-extensions:sequence-utilities:drop([sequence],[integer])">
-<span class="sig-name descname"><span class="pre">drop(&lt;sequence&gt;,</span> <span class="pre">&lt;integer&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:drop([sequence],[integer])" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">drop(&lt;sequence&gt;,</span> <span class="pre">&lt;integer&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:drop([sequence],[integer])" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="dylan generic-function">
 <dt class="sig sig-object dylan-api dylan" id="collection-extensions:sequence-utilities:find">
-<span class="sig-name descname"><span class="pre">find</span></span> <em class="property"><span class="pre">Generic</span> <span class="pre">function</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:find" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">find</span></span> <em class="property"><span class="pre">Generic</span> <span class="pre">function</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:find" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Signature<span class="colon">:</span></dt>
 <dd class="field-odd"><p>find (pred seq #key failure) =&gt; (#rest results)</p>
@@ -416,7 +479,7 @@ far. <a class="reference external" href="https://github.com/dylan-lang/collectio
 
 <dl class="dylan generic-function">
 <dt class="sig sig-object dylan-api dylan" id="collection-extensions:sequence-utilities:find-tail">
-<span class="sig-name descname"><span class="pre">find-tail</span></span> <em class="property"><span class="pre">Generic</span> <span class="pre">function</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:find-tail" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">find-tail</span></span> <em class="property"><span class="pre">Generic</span> <span class="pre">function</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:find-tail" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Signature<span class="colon">:</span></dt>
 <dd class="field-odd"><p>find-tail (pred seq) =&gt; (#rest results)</p>
@@ -437,22 +500,22 @@ far. <a class="reference external" href="https://github.com/dylan-lang/collectio
 
 <dl class="dylan method">
 <dt class="sig sig-object dylan-api dylan" id="collection-extensions:sequence-utilities:find-tail([function],[sequence])">
-<span class="sig-name descname"><span class="pre">find-tail(&lt;function&gt;,</span> <span class="pre">&lt;sequence&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:find-tail([function],[sequence])" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">find-tail(&lt;function&gt;,</span> <span class="pre">&lt;sequence&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:find-tail([function],[sequence])" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="dylan method">
 <dt class="sig sig-object dylan-api dylan" id="collection-extensions:sequence-utilities:find-tail([function],[pair])">
-<span class="sig-name descname"><span class="pre">find-tail(&lt;function&gt;,</span> <span class="pre">&lt;pair&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:find-tail([function],[pair])" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">find-tail(&lt;function&gt;,</span> <span class="pre">&lt;pair&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:find-tail([function],[pair])" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="dylan method">
 <dt class="sig sig-object dylan-api dylan" id="collection-extensions:sequence-utilities:find-tail([function],[empty-list])">
-<span class="sig-name descname"><span class="pre">find-tail(&lt;function&gt;,</span> <span class="pre">&lt;empty-list&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:find-tail([function],[empty-list])" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">find-tail(&lt;function&gt;,</span> <span class="pre">&lt;empty-list&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:find-tail([function],[empty-list])" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="dylan function">
 <dt class="sig sig-object dylan-api dylan" id="collection-extensions:sequence-utilities:foldl">
-<span class="sig-name descname"><span class="pre">foldl</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:foldl" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">foldl</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:foldl" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Signature<span class="colon">:</span></dt>
 <dd class="field-odd"><p>foldl (cons nil lst) =&gt; (#rest results)</p>
@@ -474,7 +537,7 @@ far. <a class="reference external" href="https://github.com/dylan-lang/collectio
 
 <dl class="dylan function">
 <dt class="sig sig-object dylan-api dylan" id="collection-extensions:sequence-utilities:foldr">
-<span class="sig-name descname"><span class="pre">foldr</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:foldr" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">foldr</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:foldr" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Signature<span class="colon">:</span></dt>
 <dd class="field-odd"><p>foldr (cons nil lst) =&gt; (#rest results)</p>
@@ -496,7 +559,7 @@ far. <a class="reference external" href="https://github.com/dylan-lang/collectio
 
 <dl class="dylan function">
 <dt class="sig sig-object dylan-api dylan" id="collection-extensions:sequence-utilities:heads">
-<span class="sig-name descname"><span class="pre">heads</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:heads" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">heads</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:heads" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Signature<span class="colon">:</span></dt>
 <dd class="field-odd"><p>heads (lists) =&gt; (new-list)</p>
@@ -516,7 +579,7 @@ far. <a class="reference external" href="https://github.com/dylan-lang/collectio
 
 <dl class="dylan generic-function">
 <dt class="sig sig-object dylan-api dylan" id="collection-extensions:sequence-utilities:index">
-<span class="sig-name descname"><span class="pre">index</span></span> <em class="property"><span class="pre">Generic</span> <span class="pre">function</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:index" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">index</span></span> <em class="property"><span class="pre">Generic</span> <span class="pre">function</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:index" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Signature<span class="colon">:</span></dt>
 <dd class="field-odd"><p>index (elt seq #key test failure) =&gt; (index)</p>
@@ -539,7 +602,7 @@ far. <a class="reference external" href="https://github.com/dylan-lang/collectio
 
 <dl class="dylan function">
 <dt class="sig sig-object dylan-api dylan" id="collection-extensions:sequence-utilities:last-pair">
-<span class="sig-name descname"><span class="pre">last-pair</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:last-pair" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">last-pair</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:last-pair" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Signature<span class="colon">:</span></dt>
 <dd class="field-odd"><p>last-pair (lst) =&gt; (last-pair)</p>
@@ -559,7 +622,7 @@ far. <a class="reference external" href="https://github.com/dylan-lang/collectio
 
 <dl class="dylan function">
 <dt class="sig sig-object dylan-api dylan" id="collection-extensions:sequence-utilities:list*">
-<span class="sig-name descname"><span class="pre">list*</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:list*" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">list*</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:list*" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Signature<span class="colon">:</span></dt>
 <dd class="field-odd"><p>list* (#rest rest) =&gt; (new-list)</p>
@@ -579,7 +642,7 @@ far. <a class="reference external" href="https://github.com/dylan-lang/collectio
 
 <dl class="dylan generic-function">
 <dt class="sig sig-object dylan-api dylan" id="collection-extensions:sequence-utilities:list?">
-<span class="sig-name descname"><span class="pre">list?</span></span> <em class="property"><span class="pre">Generic</span> <span class="pre">function</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:list?" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">list?</span></span> <em class="property"><span class="pre">Generic</span> <span class="pre">function</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:list?" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Signature<span class="colon">:</span></dt>
 <dd class="field-odd"><p>list? (arg) =&gt; (#rest results)</p>
@@ -599,17 +662,17 @@ far. <a class="reference external" href="https://github.com/dylan-lang/collectio
 
 <dl class="dylan method">
 <dt class="sig sig-object dylan-api dylan" id="collection-extensions:sequence-utilities:list?([list])">
-<span class="sig-name descname"><span class="pre">list?(&lt;list&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:list?([list])" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">list?(&lt;list&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:list?([list])" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="dylan method">
 <dt class="sig sig-object dylan-api dylan" id="collection-extensions:sequence-utilities:list?([object])">
-<span class="sig-name descname"><span class="pre">list?(&lt;object&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:list?([object])" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">list?(&lt;object&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:list?([object])" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="dylan generic-function">
 <dt class="sig sig-object dylan-api dylan" id="collection-extensions:sequence-utilities:null?">
-<span class="sig-name descname"><span class="pre">null?</span></span> <em class="property"><span class="pre">Generic</span> <span class="pre">function</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:null?" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">null?</span></span> <em class="property"><span class="pre">Generic</span> <span class="pre">function</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:null?" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Signature<span class="colon">:</span></dt>
 <dd class="field-odd"><p>null? (arg) =&gt; (#rest results)</p>
@@ -629,17 +692,17 @@ far. <a class="reference external" href="https://github.com/dylan-lang/collectio
 
 <dl class="dylan method">
 <dt class="sig sig-object dylan-api dylan" id="collection-extensions:sequence-utilities:null?([empty-list])">
-<span class="sig-name descname"><span class="pre">null?(&lt;empty-list&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:null?([empty-list])" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">null?(&lt;empty-list&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:null?([empty-list])" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="dylan method">
 <dt class="sig sig-object dylan-api dylan" id="collection-extensions:sequence-utilities:null?([object])">
-<span class="sig-name descname"><span class="pre">null?(&lt;object&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:null?([object])" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">null?(&lt;object&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:null?([object])" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="dylan function">
 <dt class="sig sig-object dylan-api dylan" id="collection-extensions:sequence-utilities:pair-do">
-<span class="sig-name descname"><span class="pre">pair-do</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:pair-do" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">pair-do</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:pair-do" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Signature<span class="colon">:</span></dt>
 <dd class="field-odd"><p>pair-do (func lst #rest lists) =&gt; (false)</p>
@@ -661,7 +724,7 @@ far. <a class="reference external" href="https://github.com/dylan-lang/collectio
 
 <dl class="dylan function">
 <dt class="sig sig-object dylan-api dylan" id="collection-extensions:sequence-utilities:pair-foldl">
-<span class="sig-name descname"><span class="pre">pair-foldl</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:pair-foldl" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">pair-foldl</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:pair-foldl" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Signature<span class="colon">:</span></dt>
 <dd class="field-odd"><p>pair-foldl (cons nil lst) =&gt; (#rest results)</p>
@@ -683,7 +746,7 @@ far. <a class="reference external" href="https://github.com/dylan-lang/collectio
 
 <dl class="dylan function">
 <dt class="sig sig-object dylan-api dylan" id="collection-extensions:sequence-utilities:pair-foldr">
-<span class="sig-name descname"><span class="pre">pair-foldr</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:pair-foldr" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">pair-foldr</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:pair-foldr" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Signature<span class="colon">:</span></dt>
 <dd class="field-odd"><p>pair-foldr (cons nil lst) =&gt; (#rest results)</p>
@@ -705,7 +768,7 @@ far. <a class="reference external" href="https://github.com/dylan-lang/collectio
 
 <dl class="dylan generic-function">
 <dt class="sig sig-object dylan-api dylan" id="collection-extensions:sequence-utilities:pair?">
-<span class="sig-name descname"><span class="pre">pair?</span></span> <em class="property"><span class="pre">Generic</span> <span class="pre">function</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:pair?" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">pair?</span></span> <em class="property"><span class="pre">Generic</span> <span class="pre">function</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:pair?" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Signature<span class="colon">:</span></dt>
 <dd class="field-odd"><p>pair? (arg) =&gt; (#rest results)</p>
@@ -725,17 +788,17 @@ far. <a class="reference external" href="https://github.com/dylan-lang/collectio
 
 <dl class="dylan method">
 <dt class="sig sig-object dylan-api dylan" id="collection-extensions:sequence-utilities:pair?([pair])">
-<span class="sig-name descname"><span class="pre">pair?(&lt;pair&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:pair?([pair])" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">pair?(&lt;pair&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:pair?([pair])" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="dylan method">
 <dt class="sig sig-object dylan-api dylan" id="collection-extensions:sequence-utilities:pair?([object])">
-<span class="sig-name descname"><span class="pre">pair?(&lt;object&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:pair?([object])" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">pair?(&lt;object&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:pair?([object])" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="dylan function">
 <dt class="sig sig-object dylan-api dylan" id="collection-extensions:sequence-utilities:partition">
-<span class="sig-name descname"><span class="pre">partition</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:partition" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">partition</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:partition" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Signature<span class="colon">:</span></dt>
 <dd class="field-odd"><p>partition (pred seq) =&gt; (winners losers)</p>
@@ -757,12 +820,12 @@ far. <a class="reference external" href="https://github.com/dylan-lang/collectio
 
 <dl class="dylan macro">
 <dt class="sig sig-object dylan-api dylan" id="collection-extensions:sequence-utilities:pop!">
-<span class="sig-name descname"><span class="pre">pop!</span></span> <em class="property"><span class="pre">Macro</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:pop!" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">pop!</span></span> <em class="property"><span class="pre">Macro</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:pop!" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="dylan generic-function">
 <dt class="sig sig-object dylan-api dylan" id="collection-extensions:sequence-utilities:precedes?">
-<span class="sig-name descname"><span class="pre">precedes?</span></span> <em class="property"><span class="pre">Generic</span> <span class="pre">function</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:precedes?" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">precedes?</span></span> <em class="property"><span class="pre">Generic</span> <span class="pre">function</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:precedes?" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Signature<span class="colon">:</span></dt>
 <dd class="field-odd"><p>precedes? (elt-1 elt-2 seq #key test not-found) =&gt; (precedes?)</p>
@@ -786,12 +849,12 @@ far. <a class="reference external" href="https://github.com/dylan-lang/collectio
 
 <dl class="dylan macro">
 <dt class="sig sig-object dylan-api dylan" id="collection-extensions:sequence-utilities:push!">
-<span class="sig-name descname"><span class="pre">push!</span></span> <em class="property"><span class="pre">Macro</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:push!" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">push!</span></span> <em class="property"><span class="pre">Macro</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:push!" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="dylan function">
 <dt class="sig sig-object dylan-api dylan" id="collection-extensions:sequence-utilities:reduce-l">
-<span class="sig-name descname"><span class="pre">reduce-l</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:reduce-l" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">reduce-l</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:reduce-l" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Signature<span class="colon">:</span></dt>
 <dd class="field-odd"><p>reduce-l (cons nil lst) =&gt; (#rest results)</p>
@@ -813,7 +876,7 @@ far. <a class="reference external" href="https://github.com/dylan-lang/collectio
 
 <dl class="dylan function">
 <dt class="sig sig-object dylan-api dylan" id="collection-extensions:sequence-utilities:reduce-r">
-<span class="sig-name descname"><span class="pre">reduce-r</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:reduce-r" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">reduce-r</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:reduce-r" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Signature<span class="colon">:</span></dt>
 <dd class="field-odd"><p>reduce-r (cons nil lst) =&gt; (#rest results)</p>
@@ -835,7 +898,7 @@ far. <a class="reference external" href="https://github.com/dylan-lang/collectio
 
 <dl class="dylan generic-function">
 <dt class="sig sig-object dylan-api dylan" id="collection-extensions:sequence-utilities:reverse-append">
-<span class="sig-name descname"><span class="pre">reverse-append</span></span> <em class="property"><span class="pre">Open</span> <span class="pre">Generic</span> <span class="pre">function</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:reverse-append" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">reverse-append</span></span> <em class="property"><span class="pre">Open</span> <span class="pre">Generic</span> <span class="pre">function</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:reverse-append" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Signature<span class="colon">:</span></dt>
 <dd class="field-odd"><p>reverse-append (reversed-head tail) =&gt; (new-sequence)</p>
@@ -856,17 +919,17 @@ far. <a class="reference external" href="https://github.com/dylan-lang/collectio
 
 <dl class="dylan method">
 <dt class="sig sig-object dylan-api dylan" id="collection-extensions:sequence-utilities:reverse-append([sequence],[sequence])">
-<span class="sig-name descname"><span class="pre">reverse-append(&lt;sequence&gt;,</span> <span class="pre">&lt;sequence&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:reverse-append([sequence],[sequence])" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">reverse-append(&lt;sequence&gt;,</span> <span class="pre">&lt;sequence&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:reverse-append([sequence],[sequence])" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="dylan method">
 <dt class="sig sig-object dylan-api dylan" id="collection-extensions:sequence-utilities:reverse-append([list],[list])">
-<span class="sig-name descname"><span class="pre">reverse-append(&lt;list&gt;,</span> <span class="pre">&lt;list&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:reverse-append([list],[list])" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">reverse-append(&lt;list&gt;,</span> <span class="pre">&lt;list&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:reverse-append([list],[list])" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="dylan generic-function">
 <dt class="sig sig-object dylan-api dylan" id="collection-extensions:sequence-utilities:satisfies">
-<span class="sig-name descname"><span class="pre">satisfies</span></span> <em class="property"><span class="pre">Generic</span> <span class="pre">function</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:satisfies" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">satisfies</span></span> <em class="property"><span class="pre">Generic</span> <span class="pre">function</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:satisfies" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Signature<span class="colon">:</span></dt>
 <dd class="field-odd"><p>satisfies (pred seq #key failure) =&gt; (index)</p>
@@ -888,7 +951,7 @@ far. <a class="reference external" href="https://github.com/dylan-lang/collectio
 
 <dl class="dylan function">
 <dt class="sig sig-object dylan-api dylan" id="collection-extensions:sequence-utilities:tabulate">
-<span class="sig-name descname"><span class="pre">tabulate</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:tabulate" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">tabulate</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:tabulate" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Signature<span class="colon">:</span></dt>
 <dd class="field-odd"><p>tabulate (length func #key type) =&gt; (#rest results)</p>
@@ -910,7 +973,7 @@ far. <a class="reference external" href="https://github.com/dylan-lang/collectio
 
 <dl class="dylan function">
 <dt class="sig sig-object dylan-api dylan" id="collection-extensions:sequence-utilities:tails">
-<span class="sig-name descname"><span class="pre">tails</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:tails" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">tails</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:tails" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Signature<span class="colon">:</span></dt>
 <dd class="field-odd"><p>tails (lists) =&gt; (#rest results)</p>
@@ -930,7 +993,7 @@ far. <a class="reference external" href="https://github.com/dylan-lang/collectio
 
 <dl class="dylan generic-function">
 <dt class="sig sig-object dylan-api dylan" id="collection-extensions:sequence-utilities:take">
-<span class="sig-name descname"><span class="pre">take</span></span> <em class="property"><span class="pre">Open</span> <span class="pre">Generic</span> <span class="pre">function</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:take" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">take</span></span> <em class="property"><span class="pre">Open</span> <span class="pre">Generic</span> <span class="pre">function</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:take" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Signature<span class="colon">:</span></dt>
 <dd class="field-odd"><p>take (collection k) =&gt; (#rest results)</p>
@@ -951,12 +1014,12 @@ far. <a class="reference external" href="https://github.com/dylan-lang/collectio
 
 <dl class="dylan method">
 <dt class="sig sig-object dylan-api dylan" id="collection-extensions:sequence-utilities:take([sequence],[integer])">
-<span class="sig-name descname"><span class="pre">take(&lt;sequence&gt;,</span> <span class="pre">&lt;integer&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:take([sequence],[integer])" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">take(&lt;sequence&gt;,</span> <span class="pre">&lt;integer&gt;)</span></span> <em class="property"><span class="pre">Method</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:take([sequence],[integer])" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="dylan function">
 <dt class="sig sig-object dylan-api dylan" id="collection-extensions:sequence-utilities:unfold">
-<span class="sig-name descname"><span class="pre">unfold</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:unfold" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">unfold</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:unfold" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Signature<span class="colon">:</span></dt>
 <dd class="field-odd"><p>unfold (pred f g seed) =&gt; (new-list)</p>
@@ -979,7 +1042,7 @@ far. <a class="reference external" href="https://github.com/dylan-lang/collectio
 
 <dl class="dylan function">
 <dt class="sig sig-object dylan-api dylan" id="collection-extensions:sequence-utilities:unfold/tail">
-<span class="sig-name descname"><span class="pre">unfold/tail</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:unfold/tail" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">unfold/tail</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:unfold/tail" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Signature<span class="colon">:</span></dt>
 <dd class="field-odd"><p>unfold/tail (pred f g e seed) =&gt; (new-list)</p>
@@ -1003,7 +1066,7 @@ far. <a class="reference external" href="https://github.com/dylan-lang/collectio
 
 <dl class="dylan function">
 <dt class="sig sig-object dylan-api dylan" id="collection-extensions:sequence-utilities:xpair">
-<span class="sig-name descname"><span class="pre">xpair</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:xpair" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">xpair</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#collection-extensions:sequence-utilities:xpair" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Signature<span class="colon">:</span></dt>
 <dd class="field-odd"><p>xpair (list elt) =&gt; (new-list)</p>
@@ -1094,9 +1157,9 @@ far. <a class="reference external" href="https://github.com/dylan-lang/collectio
       
     </aside>
   </div>
-</div><script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=101dc097"></script>
-    <script src="_static/doctools.js?v=888ff710"></script>
-    <script src="_static/sphinx_highlight.js?v=4825356b"></script>
-    <script src="_static/scripts/furo.js?v=32e29ea5"></script>
+</div><script src="_static/documentation_options.js?v=683873e3"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/furo.js?v=4e2eecee"></script>
     </body>
 </html>
