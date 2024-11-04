@@ -408,7 +408,7 @@ zip
    a *sequence transformation function*.
 
    The function operates on two sequences (like :drm:`range`,
-   :drm:`array`, :drm:`list`, :drm:`deque` or :drm:`string`) and
+   `array`, :drm:`list`, `deque` or `string`) and
    transforms them in a :drm:`<sequence>` of pairs, each element from
    one of the sequences.
 
