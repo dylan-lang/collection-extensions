@@ -9,6 +9,10 @@ Overview
 
 The sequence-utilities module implements some useful methods on sequences.
 
+- :func:`zip`
+- :func:`zip-all`
+- :func:`zip-with`
+
 
 Reference
 ---------
@@ -363,3 +367,148 @@ far. https://github.com/dylan-lang/collection-extensions/issues/2
    :parameter list: An instance of :drm:`<list>`.
    :parameter elt: An instance of :drm:`<object>`.
    :value new-list: An instance of :drm:`<list>`.
+
+zip
+^^^
+
+.. function:: zip
+
+   The `zip` function combines multiple iterables element-wise into
+   tuples, stopping at the shortest iterable.
+
+   :signature:
+
+      zip (*sequence1* *sequence2* #key *key1* *key2*) => (*zipped*)
+
+   :parameter sequence1:
+
+      An instance of :drm:`<sequence>`.
+
+   :parameter sequence2:
+
+      An instance of :drm:`<sequence>`.
+
+   :parameter #key key1:
+
+      An instance of :drm:`<function>`. Default value:
+      :drm:`identity`.
+
+   :parameter #key key2:
+
+      An instance of :drm:`<function>`. Default value:
+      :drm:`identity`.
+
+   :value zipped:
+
+      An instance of :drm:`<sequence>`.
+
+   :description:
+
+   The `zip` function is often classified as a *high-order function* and
+   a *sequence transformation function*.
+
+   The function operates on two sequences (like :drm:`range`,
+   `array`, :drm:`list`, `deque` or `string`) and
+   transforms them in a :drm:`<sequence>` of pairs, each element from
+   one of the sequences.
+
+   If *key1* or *key2* are not provided, they default to the function
+   :drm:`identity` returning the object. If provided, this function
+   transforms the element before collecting it.
+
+   If the sequences provided have different lengths, func:`zip`
+   automatically truncates the output to the length of the shorter
+   sequence.
+
+
+   :example:
+
+   .. code-block:: dylan
+
+     let a = #(1, 2);
+     let b = #('a', 'b');
+
+     let zipped = zip(a, b);
+     format-out("%=", zipped); // Output: #(#(1, 'a'), #(2, 'b'))
+
+   :example:
+
+   .. code-block:: dylan
+
+     let a = #('a', 'b');
+     let b = #(3, 4);
+
+     let zipped = zip(a, b, key2: odd?);
+     format-out("%=", zipped); // Output: #(#('a', #t), ('b', #f))
+
+zip-with
+^^^^^^^^
+
+.. function:: zip-with
+
+
+   :signature:
+
+      zip-with (function collection #rest more-collections) ⇒ new-collection
+
+   :parameter function:
+
+      An instance of :drm:`<function>`.
+
+   :parameter collection:
+
+      An instance of :drm:`<collection>`.
+
+   :parameter more-collections:
+
+      An instance of :drm:`<collection>`.
+
+   :value new-collection:
+
+      An instance of :drm:`<collection>`.
+
+   :example:
+
+   .. code-block:: dylan
+
+     let a = #(100, 200, 300);
+     let b = #(1, 2, 3);
+
+     let zipped = zip-with(\+, a, b);
+     format-out("%=", zipped); // Output: #(101, 202, 303)
+
+   :seealso:
+
+      :drm:`map`
+
+zip-all
+^^^^^^^
+
+.. function:: zip-all
+
+   A :func:`zip` function that can take any number of iterables as
+   parameters.
+   
+   :signature:
+
+      zip-all (sequences) => (zipped)
+
+   :parameter sequences:
+
+      An instance of :drm:`<sequence>`.
+
+   :value zipped:
+
+      An instance of :drm:`<sequence>`.
+
+   :example:
+
+   .. code-block:: dylan
+
+     let a = #(1, 2, 3);
+     let b = #('a', 'b', 'c');
+     let c = #(#t, #f, #t);
+
+     let zipped = zip-all(a, b, c);
+
+     format-out("%=", zipped); // Output: #(#(1, 'a', #t), #(2, 'b', #f), #(3, 'c', #t))

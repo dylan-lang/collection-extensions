@@ -588,3 +588,29 @@ define method precedes?(elt-1, elt-2, seq :: <sequence>,
     not-found;
   end block;
 end method precedes?;
+
+define function zip
+    (seq1 :: <sequence>, seq2 :: <sequence>, #key key1 = identity, key2 = identity)
+ => (zipped :: <sequence>)
+  collecting (as <sequence>)
+    for (e1 in seq1, e2 in seq2)
+      collect(list(key1(e1), key2(e2)))
+    end
+  end;
+end;
+
+define constant zip-with
+  = map;
+
+define function zip-all
+    (#rest sequences) => (zipped :: <sequence>)
+  local method recur (seqs, zipped :: <list>)
+    if (any?(empty?, seqs))
+      reverse(zipped)
+    else
+      recur(map(tail, seqs),
+            add(zipped, map(head, seqs)))
+    end
+  end;
+  if (empty?(sequences)) #() else recur(sequences, #()) end
+end;
