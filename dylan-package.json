@@ -8,8 +8,8 @@
     "name": "collection-extensions",
     "dependencies": [],
     "dev-dependencies": [
-        "sphinx-extensions@0.2.0",
-        "testworks@3.2"
+        "sphinx-extensions",
+        "testworks"
     ],
     "license": "MIT",
     "url": "https://github.com/dylan-lang/collection-extensions",
