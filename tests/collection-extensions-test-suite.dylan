@@ -37,5 +37,6 @@ define suite collection-extensions-test-suite
   suite sequence-diff-suite;
   suite collection-utilities-suite;
   suite sequence-utilities-suite;
+  suite zip-suite;
 end suite collection-extensions-test-suite;
 
